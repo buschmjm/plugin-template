@@ -18,8 +18,6 @@ set -euo pipefail
 REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 BACKUP_DIR="$REPO_DIR/backup"
 
-CURRENT_VERSION_FILE="/opt/hytale-builder/current_version.txt"
-
 NAMESPACE="hytale"
 DEPLOYMENT_NAME="hytale-server"
 CONTAINER_NAME="hytale"
@@ -44,11 +42,11 @@ log "Rollback: Pre-flight checks"
 [[ -d "$BACKUP_DIR" ]] || fail "No backup found at $BACKUP_DIR — cannot rollback"
 [[ -d "$PVC_PATH" ]]   || fail "PVC path not found: $PVC_PATH"
 
-BACKUP_VERSION="none"
-if [[ -f "$BACKUP_DIR/backed_up_version.txt" ]]; then
-    BACKUP_VERSION=$(cat "$BACKUP_DIR/backed_up_version.txt")
+BACKUP_IMAGE="unknown"
+if [[ -f "$BACKUP_DIR/backed_up_image.txt" ]]; then
+    BACKUP_IMAGE=$(cat "$BACKUP_DIR/backed_up_image.txt")
 fi
-info "Restoring to backed-up version: $BACKUP_VERSION"
+info "Restoring to backed-up image: $BACKUP_IMAGE"
 
 # ── Step 1: Scale down production ─────────────────────────────────────────────
 
@@ -93,13 +91,7 @@ log "Step 4: Rolling back deployment"
 
 # Undo the deployment to the previous revision (restores the image tag)
 k3s kubectl rollout undo deployment/"$DEPLOYMENT_NAME" -n "$NAMESPACE"
-info "Deployment rolled back to previous revision"
-
-# Restore the version tracker
-if [[ "$BACKUP_VERSION" != "none" ]]; then
-    echo "$BACKUP_VERSION" > "$CURRENT_VERSION_FILE"
-    info "Version file restored: $BACKUP_VERSION"
-fi
+info "Deployment rolled back to previous revision (was: $BACKUP_IMAGE)"
 
 # ── Step 5: Scale up and verify ───────────────────────────────────────────────
 

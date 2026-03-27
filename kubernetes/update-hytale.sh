@@ -3,6 +3,445 @@
 # update-hytale.sh — Full Hytale server update & deployment pipeline
 # ═══════════════════════════════════════════════════════════════════════════════
 #
+# Runs directly on the k3s host. Two modes:
+#
+#   (default) Pull latest everhytale/hytale-server image from Docker Hub.
+#             Checks every 12h for new Hytale releases. No credentials needed.
+#
+#   --build   Download official game files directly from Hytale using the
+#             official Hytale downloader, then build & import a custom image.
+#             Use this when the Docker Hub image is stale (everhytale updates
+#             every 12h, but if they fall behind, --build gets the real latest).
+#             Requires a Hytale account — run kubernetes/hytale-auth.sh first.
+#
+# Usage:
+#   sudo /home/dad/hytale-mmorpg-mod/kubernetes/update-hytale.sh
+#   sudo /home/dad/hytale-mmorpg-mod/kubernetes/update-hytale.sh --build
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+set -euo pipefail
+
+# ── Constants ─────────────────────────────────────────────────────────────────
+
+REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+KUBERNETES_DIR="$REPO_DIR/kubernetes"
+MODS_DIR="$REPO_DIR/mods"
+CONFIGS_DIR="$REPO_DIR/configs"
+BACKUP_DIR="$REPO_DIR/backup"
+
+# Docker Hub image — community-maintained, auto-built every 12h from official releases
+REGISTRY_IMAGE="docker.io/everhytale/hytale-server:latest"
+
+# --build mode: official Hytale downloader + game files
+BUILD_DIR="/opt/hytale-builder"
+DOWNLOADER_DIR="$BUILD_DIR/hytale-downloader"
+DOWNLOADER="$DOWNLOADER_DIR/hytale-downloader-linux-amd64"
+CREDENTIALS_FILE="$BUILD_DIR/.hytale-downloader-credentials.json"
+GAME_FILES_DIR="$BUILD_DIR/game-files"
+LOCAL_IMAGE_BASE="hytale-server"
+
+# Kubernetes
+NAMESPACE="hytale"
+DEPLOYMENT_NAME="hytale-server"
+CONTAINER_NAME="hytale"
+TEST_POD_NAME="hytale-test"
+
+# PVC — the actual host path backing the hytale-server PersistentVolumeClaim
+PVC_PATH="/var/lib/rancher/k3s/storage/pvc-2a0b4ba5-ac88-4e47-a9b9-6f8278d40263_hytale_hytale-server"
+PVC_MODS="$PVC_PATH/mods"
+PVC_CONFIGS="$PVC_PATH/configs"
+
+# Staging
+TEST_STAGING="/tmp/hytale-test-mods"
+
+# Timing
+TEST_BOOT_WAIT=45
+ROLLOUT_TIMEOUT=120
+
+# Mode
+BUILD_MODE=false
+[[ "${1:-}" == "--build" ]] && BUILD_MODE=true
+
+# State
+IMAGE_UPDATED=false
+OLD_IMAGE=""
+NEW_IMAGE=""
+
+# ── Helpers ───────────────────────────────────────────────────────────────────
+
+log()     { echo ""; echo "══════════════════════════════════════"; echo "  $1"; echo "══════════════════════════════════════"; }
+info()    { echo "  ✓ $1"; }
+warn()    { echo "  ⚠ $1"; }
+fail()    { echo ""; echo "  ✗ FAILED: $1" >&2; exit 1; }
+
+cleanup_test_pod() {
+    k3s kubectl delete pod "$TEST_POD_NAME" -n "$NAMESPACE" --ignore-not-found --wait=false >/dev/null 2>&1 || true
+    rm -rf "$TEST_STAGING"
+}
+
+# ── Pre-flight checks ────────────────────────────────────────────────────────
+
+log "Pre-flight checks"
+
+[[ $EUID -eq 0 ]] || fail "This script must be run as root (sudo)"
+[[ -d "$REPO_DIR/mods" ]] || fail "Mods directory not found: $REPO_DIR/mods"
+[[ -d "$PVC_PATH" ]]      || fail "PVC path not found: $PVC_PATH"
+
+if [[ "$BUILD_MODE" == true ]]; then
+    command -v unzip &>/dev/null || fail "unzip is required for --build mode: sudo apt install unzip"
+    command -v docker &>/dev/null || command -v nerdctl &>/dev/null || fail "docker or nerdctl required for --build mode"
+fi
+
+if command -v docker &>/dev/null; then
+    DOCKER_CMD="docker"
+elif command -v nerdctl &>/dev/null; then
+    DOCKER_CMD="nerdctl"
+else
+    DOCKER_CMD=""
+fi
+
+info "Repo:  $REPO_DIR"
+info "PVC:   $PVC_PATH"
+info "Mode:  $([[ "$BUILD_MODE" == true ]] && echo "build from source (official Hytale downloader)" || echo "pull from Docker Hub (everhytale/hytale-server:latest)")"
+
+# ── Step 1: Backup current server state ──────────────────────────────────────
+
+log "Step 1: Backing up current server state"
+
+rm -rf "$BACKUP_DIR"
+mkdir -p "$BACKUP_DIR/mods" "$BACKUP_DIR/world"
+
+if [[ -d "$PVC_MODS" ]] && ls "$PVC_MODS"/*.jar &>/dev/null; then
+    cp -a "$PVC_MODS"/*.jar "$BACKUP_DIR/mods/"
+    info "Backed up $(ls "$BACKUP_DIR/mods/" | wc -l) mod jar(s)"
+else
+    warn "No mods found in PVC to back up"
+fi
+
+find "$PVC_PATH" -mindepth 1 -maxdepth 1 ! -name "mods" -exec cp -a {} "$BACKUP_DIR/world/" \;
+info "Backed up world data from PVC"
+
+OLD_IMAGE=$(k3s kubectl get deployment "$DEPLOYMENT_NAME" -n "$NAMESPACE" \
+    -o jsonpath='{.spec.template.spec.containers[0].image}' 2>/dev/null || echo "unknown")
+echo "$OLD_IMAGE" > "$BACKUP_DIR/backed_up_image.txt"
+info "Current image: $OLD_IMAGE"
+
+# ── Step 2: Get latest game image ─────────────────────────────────────────────
+
+if [[ "$BUILD_MODE" == true ]]; then
+
+    # ── Build mode: download official game files from Hytale + build image ────
+
+    log "Step 2: Downloading official Hytale game files"
+
+    # Download the Hytale downloader binary if not present
+    if [[ ! -x "$DOWNLOADER" ]]; then
+        info "Downloading Hytale downloader..."
+        mkdir -p "$DOWNLOADER_DIR"
+        curl -fsSL "https://downloader.hytale.com/hytale-downloader.zip" \
+            -o "$DOWNLOADER_DIR/hytale-downloader.zip" \
+            || fail "Failed to download from https://downloader.hytale.com/hytale-downloader.zip"
+        unzip -q "$DOWNLOADER_DIR/hytale-downloader.zip" -d "$DOWNLOADER_DIR"
+        rm "$DOWNLOADER_DIR/hytale-downloader.zip"
+        chmod +x "$DOWNLOADER"
+        info "Hytale downloader installed at $DOWNLOADER"
+    else
+        info "Hytale downloader already present"
+    fi
+
+    # Check credentials
+    [[ -f "$CREDENTIALS_FILE" ]] || fail "Hytale credentials not found: $CREDENTIALS_FILE\n  Authenticate first: sudo $KUBERNETES_DIR/hytale-auth.sh"
+
+    # Get latest version from Hytale
+    HYTALE_VERSION=$("$DOWNLOADER" -print-version 2>/dev/null) \
+        || fail "Could not query latest Hytale version (credentials may be expired — re-run hytale-auth.sh)"
+    info "Latest Hytale version: $HYTALE_VERSION"
+
+    # Skip download if game files are already current
+    CURRENT_DOWNLOADED=""
+    [[ -f "$GAME_FILES_DIR/.version" ]] && CURRENT_DOWNLOADED=$(cat "$GAME_FILES_DIR/.version")
+
+    if [[ "$CURRENT_DOWNLOADED" == "$HYTALE_VERSION" ]]; then
+        info "Game files already at $HYTALE_VERSION — skipping download"
+    else
+        info "Downloading game files for $HYTALE_VERSION ..."
+        cd "$DOWNLOADER_DIR"
+        cp "$CREDENTIALS_FILE" .hytale-downloader-credentials.json
+        ./hytale-downloader-linux-amd64 -download-path "$BUILD_DIR/game.zip" \
+            || { rm -f .hytale-downloader-credentials.json; fail "Hytale game download failed"; }
+        rm -f .hytale-downloader-credentials.json
+        cd "$BUILD_DIR"
+        rm -rf "$GAME_FILES_DIR"
+        mkdir -p "$GAME_FILES_DIR"
+        unzip -q game.zip -d "$GAME_FILES_DIR"
+        rm game.zip
+        echo "$HYTALE_VERSION" > "$GAME_FILES_DIR/.version"
+        info "Game files downloaded and extracted"
+    fi
+
+    log "Step 2b: Building Docker image hytale-server:$HYTALE_VERSION"
+
+    # Set up build context: game files + Dockerfile
+    BUILD_CONTEXT="$BUILD_DIR/docker-build"
+    rm -rf "$BUILD_CONTEXT"
+    mkdir -p "$BUILD_CONTEXT"
+    cp -r "$GAME_FILES_DIR/Server" "$BUILD_CONTEXT/Server"
+    cp "$GAME_FILES_DIR/Assets.zip" "$BUILD_CONTEXT/Assets.zip"
+    cp "$KUBERNETES_DIR/Dockerfile" "$BUILD_CONTEXT/Dockerfile"
+
+    NEW_IMAGE="${LOCAL_IMAGE_BASE}:${HYTALE_VERSION}"
+    $DOCKER_CMD build \
+        -t "${LOCAL_IMAGE_BASE}:latest" \
+        -t "$NEW_IMAGE" \
+        "$BUILD_CONTEXT" \
+        || fail "Docker image build failed"
+    rm -rf "$BUILD_CONTEXT"
+    info "Built image: $NEW_IMAGE"
+
+    log "Step 2c: Importing image into k3s containerd"
+    $DOCKER_CMD save "$NEW_IMAGE" | k3s ctr images import - \
+        || fail "Failed to import image into k3s"
+    info "Image imported: $NEW_IMAGE"
+
+    IMAGE_UPDATED=true
+
+else
+
+    # ── Pull mode: pull latest from Docker Hub ─────────────────────────────────
+
+    log "Step 2: Pulling latest Hytale image from Docker Hub"
+
+    # Record current digest so we can detect if anything changed
+    OLD_DIGEST=$(k3s ctr images list 2>/dev/null \
+        | awk '/everhytale\/hytale-server:latest/ {print $3}' | head -1 || echo "none")
+
+    info "Pulling $REGISTRY_IMAGE ..."
+    k3s ctr images pull "$REGISTRY_IMAGE" \
+        || fail "Failed to pull $REGISTRY_IMAGE — check internet connectivity"
+    info "Pull complete"
+
+    NEW_DIGEST=$(k3s ctr images list 2>/dev/null \
+        | awk '/everhytale\/hytale-server:latest/ {print $3}' | head -1 || echo "unknown")
+
+    if [[ "$OLD_DIGEST" != "$NEW_DIGEST" && "$OLD_DIGEST" != "none" ]]; then
+        info "New image available (digest: $OLD_DIGEST → $NEW_DIGEST)"
+        IMAGE_UPDATED=true
+    elif [[ "$OLD_DIGEST" == "none" ]]; then
+        info "Image pulled for the first time"
+        IMAGE_UPDATED=true
+    else
+        info "Image is already up to date ($NEW_DIGEST)"
+    fi
+
+    NEW_IMAGE="$REGISTRY_IMAGE"
+
+fi
+
+# ── Step 3: Stage mods for testing ───────────────────────────────────────────
+
+log "Step 3: Staging mods for test pod"
+
+cleanup_test_pod
+mkdir -p "$TEST_STAGING"
+
+MOD_COUNT=0
+if ls "$MODS_DIR"/*.jar &>/dev/null; then
+    cp "$MODS_DIR"/*.jar "$TEST_STAGING/"
+    MOD_COUNT=$(ls "$TEST_STAGING"/*.jar 2>/dev/null | wc -l)
+fi
+if ls "$MODS_DIR"/*.zip &>/dev/null; then
+    cp "$MODS_DIR"/*.zip "$TEST_STAGING/"
+    ZIP_COUNT=$(ls "$TEST_STAGING"/*.zip 2>/dev/null | wc -l)
+    MOD_COUNT=$((MOD_COUNT + ZIP_COUNT))
+fi
+info "Staged $MOD_COUNT mod(s) from $MODS_DIR"
+info "Test image: $NEW_IMAGE"
+
+# ── Step 4: Spin up test pod ─────────────────────────────────────────────────
+
+log "Step 4: Launching test pod"
+
+# Local images (--build mode) must not be pulled; Hub images should always pull
+PULL_POLICY="$([[ "$BUILD_MODE" == true ]] && echo "Never" || echo "Always")"
+
+cat <<EOF | k3s kubectl apply -f -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: $TEST_POD_NAME
+  namespace: $NAMESPACE
+  labels:
+    app: hytale-test
+spec:
+  restartPolicy: Never
+  containers:
+  - name: hytale
+    image: $NEW_IMAGE
+    imagePullPolicy: $PULL_POLICY
+    volumeMounts:
+    - name: test-mods
+      mountPath: /server/mods
+  volumes:
+  - name: test-mods
+    hostPath:
+      path: $TEST_STAGING
+      type: Directory
+EOF
+
+info "Test pod created, waiting to stabilize..."
+
+HEALTHY=false
+for i in $(seq 1 "$TEST_BOOT_WAIT"); do
+    PHASE=$(k3s kubectl get pod "$TEST_POD_NAME" -n "$NAMESPACE" \
+        -o jsonpath='{.status.phase}' 2>/dev/null || echo "Unknown")
+    case "$PHASE" in
+        Running)  [[ $i -ge 15 ]] && { HEALTHY=true; break; } ;;
+        Failed|Unknown) break ;;
+    esac
+    sleep 1
+done
+
+echo ""
+echo "── Test pod logs (last 30 lines) ──"
+k3s kubectl logs "$TEST_POD_NAME" -n "$NAMESPACE" --tail=30 2>/dev/null || echo "(no logs available)"
+echo "────────────────────────────────────"
+
+RESTARTS=$(k3s kubectl get pod "$TEST_POD_NAME" -n "$NAMESPACE" \
+    -o jsonpath='{.status.containerStatuses[0].restartCount}' 2>/dev/null || echo "0")
+[[ "$RESTARTS" -gt 0 ]] && { warn "Test pod restarted $RESTARTS time(s) — treating as unhealthy"; HEALTHY=false; }
+
+FINAL_PHASE=$(k3s kubectl get pod "$TEST_POD_NAME" -n "$NAMESPACE" \
+    -o jsonpath='{.status.phase}' 2>/dev/null || echo "Unknown")
+cleanup_test_pod
+
+if [[ "$HEALTHY" != true ]]; then
+    echo ""
+    echo "  ✗ TEST FAILED — Pod phase: $FINAL_PHASE, Restarts: $RESTARTS"
+    echo "    No changes have been made to the production server."
+    echo "    Review the logs above to diagnose the issue."
+    echo ""
+    exit 1
+fi
+
+info "Test pod healthy (stable for ${TEST_BOOT_WAIT}s, 0 restarts)"
+
+# ── Step 5: Deploy to production ─────────────────────────────────────────────
+
+log "Step 5: Deploying to production"
+
+k3s kubectl scale deployment/"$DEPLOYMENT_NAME" -n "$NAMESPACE" --replicas=0
+info "Scaled down production pod"
+k3s kubectl wait --for=delete pod -l "app.kubernetes.io/name=hytale" -n "$NAMESPACE" --timeout=120s 2>/dev/null || true
+sleep 3
+info "Production pod terminated"
+
+# Sync mods
+log "Step 5b: Syncing mods to PVC"
+mkdir -p "$PVC_MODS"
+rm -f "$PVC_MODS"/*.jar "$PVC_MODS"/*.zip
+if ls "$MODS_DIR"/*.jar &>/dev/null; then
+    cp "$MODS_DIR"/*.jar "$PVC_MODS/"
+    info "Deployed $(ls "$PVC_MODS"/*.jar 2>/dev/null | wc -l) mod(s)"
+else
+    warn "No mod jars found in $MODS_DIR"
+fi
+if ls "$MODS_DIR"/*.zip &>/dev/null; then
+    cp "$MODS_DIR"/*.zip "$PVC_MODS/"
+fi
+
+# Sync configs
+log "Step 5c: Syncing configs to PVC"
+if [[ -d "$CONFIGS_DIR" ]]; then
+    mkdir -p "$PVC_CONFIGS"
+    cp -a "$CONFIGS_DIR"/. "$PVC_CONFIGS/"
+    info "Deployed $(find "$PVC_CONFIGS" -type f | wc -l) config file(s)"
+else
+    warn "No configs directory found in repo"
+fi
+
+# Update deployment image
+if [[ "$IMAGE_UPDATED" == true ]]; then
+    log "Step 5d: Updating deployment image"
+    k3s kubectl set image "deployment/$DEPLOYMENT_NAME" "$CONTAINER_NAME=$NEW_IMAGE" -n "$NAMESPACE"
+    # Ensure pull policy is Always for Hub images so future updates work
+    if [[ "$BUILD_MODE" != true ]]; then
+        k3s kubectl patch deployment "$DEPLOYMENT_NAME" -n "$NAMESPACE" \
+            --type=json \
+            -p='[{"op":"replace","path":"/spec/template/spec/containers/0/imagePullPolicy","value":"Always"}]'
+    fi
+    info "Deployment image updated to: $NEW_IMAGE"
+fi
+
+k3s kubectl scale deployment/"$DEPLOYMENT_NAME" -n "$NAMESPACE" --replicas=1
+info "Scaled up production pod"
+
+# ── Step 6: Production health check ──────────────────────────────────────────
+
+log "Step 6: Waiting for production rollout"
+
+if ! k3s kubectl rollout status "deployment/$DEPLOYMENT_NAME" -n "$NAMESPACE" --timeout="${ROLLOUT_TIMEOUT}s"; then
+    echo ""
+    echo "  ✗ PRODUCTION ROLLOUT FAILED"
+    echo ""
+    echo "── Pod status ──"
+    k3s kubectl get pods -n "$NAMESPACE" -l "app.kubernetes.io/name=hytale" -o wide 2>/dev/null || true
+    echo ""
+    echo "── Pod logs (last 40 lines) ──"
+    FAIL_POD=$(k3s kubectl get pods -n "$NAMESPACE" -l "app.kubernetes.io/name=hytale" \
+        -o jsonpath='{.items[0].metadata.name}' 2>/dev/null || echo "")
+    [[ -n "$FAIL_POD" ]] && k3s kubectl logs "$FAIL_POD" -n "$NAMESPACE" --tail=40 2>/dev/null || true
+    echo "────────────────────────────────────"
+    echo ""
+    echo "  Running automatic rollback..."
+    "$KUBERNETES_DIR/rollback-hytale.sh"
+    echo ""
+    echo "  ✗ Rollback complete. Review logs above."
+    echo ""
+    exit 1
+fi
+
+sleep 10
+PROD_POD=$(k3s kubectl get pods -n "$NAMESPACE" -l "app.kubernetes.io/name=hytale" \
+    -o jsonpath='{.items[0].metadata.name}' 2>/dev/null || echo "")
+if [[ -n "$PROD_POD" ]]; then
+    PROD_RESTARTS=$(k3s kubectl get pod "$PROD_POD" -n "$NAMESPACE" \
+        -o jsonpath='{.status.containerStatuses[0].restartCount}' 2>/dev/null || echo "0")
+    PROD_PHASE=$(k3s kubectl get pod "$PROD_POD" -n "$NAMESPACE" \
+        -o jsonpath='{.status.phase}' 2>/dev/null || echo "Unknown")
+
+    if [[ "$PROD_RESTARTS" -gt 0 || "$PROD_PHASE" != "Running" ]]; then
+        echo ""
+        echo "  ✗ PRODUCTION UNSTABLE — Phase: $PROD_PHASE, Restarts: $PROD_RESTARTS"
+        echo ""
+        echo "── Pod logs (last 40 lines) ──"
+        k3s kubectl logs "$PROD_POD" -n "$NAMESPACE" --tail=40 2>/dev/null || echo "(no logs)"
+        echo "────────────────────────────────────"
+        echo ""
+        echo "  Running automatic rollback..."
+        "$KUBERNETES_DIR/rollback-hytale.sh"
+        echo ""
+        echo "  ✗ Rollback complete. Production restored to previous state."
+        exit 1
+    fi
+fi
+
+# ── Summary ───────────────────────────────────────────────────────────────────
+
+log "Update complete!"
+
+echo ""
+if [[ "$IMAGE_UPDATED" == true ]]; then
+    echo "  Image:    $OLD_IMAGE → $NEW_IMAGE"
+else
+    echo "  Image:    $OLD_IMAGE (already latest)"
+fi
+echo "  Mods:     $(ls "$PVC_MODS"/*.jar "$PVC_MODS"/*.zip 2>/dev/null | wc -l) file(s) deployed"
+echo "  Configs:  $(find "$PVC_CONFIGS" -type f 2>/dev/null | wc -l) file(s)"
+echo "  Server:   live and healthy"
+echo ""
+
+#
 # Runs directly on the k3s host. Handles:
 #   1. Backup current server state (mods + world) into this repo
 #   2. Check for & download new Hytale game version
@@ -76,7 +515,9 @@ log "Pre-flight checks"
 
 [[ -d "$REPO_DIR/mods" ]]      || fail "Mods directory not found: $REPO_DIR/mods"
 [[ -d "$PVC_PATH" ]]           || fail "PVC path not found: $PVC_PATH"
-[[ -x "$DOWNLOADER" ]]         || fail "Hytale downloader not found: $DOWNLOADER"
+
+[[ -x "$DOWNLOADER" ]] || fail "Hytale downloader not found: $DOWNLOADER\n  Install it: sudo mkdir -p $BUILD_DIR && sudo cp hytale-downloader-linux-amd64 $DOWNLOADER && sudo chmod +x $DOWNLOADER\n  See README.md → Server Setup for details."
+info "Downloader: $DOWNLOADER"
 
 # Detect container build tool
 if command -v docker &>/dev/null; then

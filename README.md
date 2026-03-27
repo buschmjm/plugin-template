@@ -367,15 +367,15 @@ Dungeon boss drops only. Not sold in the shop. Stats: 16% resist, +35 HP, 500 du
 
 ## Combat Pets
 
-10 combat pets across 5 rarity tiers. Eggs drop from mobs in the matching zone and from dungeon bosses.
+10 combat pets across 5 rarity tiers. 2 are purchasable from the Pet Shop; the rest drop as eggs from mobs and dungeon bosses.
 
 | Pet | Rarity | Source | Drop Rate |
 |-----|--------|--------|-----------|
-| Forest Wolf | Common | Zone 1 wolves | ~2% |
+| Forest Wolf | Common | Pet Shop (1,000g) or Zone 1 wolves | ~2% drop |
 | Wild Cat | Common | Zone 1 cats | ~2% |
 | Desert Raptor | Uncommon | Zone 2 raptors | ~2% |
 | Shore Crab | Uncommon | Zone 2 crabs | ~2% |
-| Frost Bear | Rare | Zone 3 polar bears | ~1% |
+| Frost Bear (Polar Bear) | Rare | Pet Shop (6,000g) or Zone 3 polar bears | ~1% drop |
 | Ice Pterodactyl | Rare | Zone 3 pterodactyls | ~1% |
 | Cave Rex | Epic | Zone 4 T-Rex | ~1% |
 | Triceratops | Epic | Zone 4 triceratops | ~1% |
@@ -386,15 +386,15 @@ Dungeon boss drops only. Not sold in the shop. Stats: 16% resist, +35 HP, 500 du
 
 ## Mount System
 
-Four mounts unlock as players progress through zones:
+Four Mounts+ mounts purchasable from the Mount Shop; also available via Chocobo Tales and dungeon drops:
 
 | Mount | Rarity | Tier | Speed | HP | Storage | Respawn | Source |
 |-------|--------|------|-------|----|---------|---------|--------|
-| Black Wolf | Common | 1 | 1.2× | 50 | 9 slots | 60s | Starter quest |
-| Polar Bear | Uncommon | 2 | 1.3× | 80 | 18 slots | 120s | Shop (1,500g) |
+| Black Wolf | Common | 1 | 1.2× | 50 | 9 slots | 60s | Mount Shop (2,000g) |
+| Polar Bear | Uncommon | 2 | 1.3× | 80 | 18 slots | 120s | Mount Shop (5,000g) |
 | Chocobo | Rare | 2 | 1.6× | 90 | 18 slots | 120s | Chocobo Tales (tame with capture crate) |
-| Cave Rex | Rare | 3 | 1.5× | 120 | 36 slots | 180s | D01 drop |
-| Frost Dragon | Legendary | 4 | 1.8× | 200 | 54 slots | 300s | D03 drop |
+| Cave Rex | Rare | 3 | 1.5× | 120 | 36 slots | 180s | Mount Shop (12,000g) or D01 drop |
+| Frost Dragon | Legendary | 4 | 1.8× | 200 | 54 slots | 300s | Mount Shop (25,000g) or D03 drop |
 
 The 13 Traveling Mounts (craftable at the Farmingbench) are also available as lower-stat alternatives.
 
@@ -464,6 +464,30 @@ The 13 Traveling Mounts (craftable at the Farmingbench) are also available as lo
 ## Shop and Economy
 
 Handled by the MMORPGStats mod. No external config — all data persisted via ECS components.
+
+### Mount Shop
+
+Opened from `/menu` → Mounts. Grants the mount directly to the player's collection (no egg required). Uses Mounts+ API via reflection.
+
+| Mount | Type Key | Price |
+|-------|----------|-------|
+| Black Wolf | `Wolf_Black` | 2,000g |
+| Polar Bear | `Bear_Polar` | 5,000g |
+| Cave Rex | `Rex_Cave` | 12,000g |
+| Frost Dragon | `Dragon_Frost` | 25,000g |
+
+Command hint shown in UI: `/mounts` to manage, `/mounts storage` for mount inventory.
+
+### Pet Shop
+
+Opened from `/menu` → Pets. Grants the pet directly to the player's collection (no egg required). Uses Pets+ API via reflection.
+
+| Pet | Type Key | Price |
+|-----|----------|-------|
+| Forest Wolf | `Wolf` | 1,000g |
+| Polar Bear | `Bear_Polar` | 6,000g |
+
+Command hint shown in UI: `/pets` to manage and summon.
 
 ### Weapon Shop Categories (8 tabs, up to 11 items per tab)
 
@@ -952,6 +976,42 @@ Permissions are managed through Hytale's built-in `permissions.json`. No third-p
 
 ### Key Configuration
 All stat multipliers, thresholds, and XP curves are in `StatConstants.java`.
+
+## Server Setup
+
+One-time setup required on the k3s host before `update-hytale.sh` can run:
+
+### 1. Create build directory
+
+```bash
+sudo mkdir -p /opt/hytale-builder
+```
+
+### 2. Install the Hytale downloader binary
+
+The downloader is a Hytale-provided tool that checks for and downloads new server versions.
+Obtain `hytale-downloader-linux-amd64` and install it:
+
+```bash
+sudo cp hytale-downloader-linux-amd64 /opt/hytale-builder/hytale-downloader-linux-amd64
+sudo chmod +x /opt/hytale-builder/hytale-downloader-linux-amd64
+```
+
+Verify it works:
+
+```bash
+/opt/hytale-builder/hytale-downloader-linux-amd64 -print-version
+```
+
+### 3. Run the update script
+
+```bash
+sudo /home/dad/hytale-mmorpg-mod/kubernetes/update-hytale.sh
+```
+
+The script will fail immediately with a clear message if the downloader is not installed.
+
+---
 
 ## Building
 
