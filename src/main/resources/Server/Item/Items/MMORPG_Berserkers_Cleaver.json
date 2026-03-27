@@ -1,0 +1,17 @@
+{
+  "Parent": "Weapon_Battleaxe_Iron",
+  "TranslationProperties": {
+    "Name": "Berserker's Cleaver",
+    "Description": "A massive axe that sends foes flying on impact."
+  },
+  "MaxStack": 1,
+  "MaxDurability": 900,
+  "DurabilityLossOnHit": 0.1,
+  "InteractionVars": {
+    "Swing_Down_Damage": { "Interactions": [{ "Parent": "Weapon_Battleaxe_Primary_Swing_Down_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 20 } } }] },
+    "Swing_Down_Left_Damage": { "Interactions": [{ "Parent": "Weapon_Battleaxe_Primary_Swing_Down_Left_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 14 } } }] },
+    "Swing_Down_Right_Damage": { "Interactions": [{ "Parent": "Weapon_Battleaxe_Primary_Swing_Down_Right_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 15 } } }] },
+    "Downstrike_Damage": { "Interactions": [{ "Parent": "Weapon_Battleaxe_Primary_Downstrike_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 28 } } }] },
+    "Signature_Whirlwind_Damage": { "Interactions": [{ "Parent": "Weapon_Battleaxe_Signature_Whirlwind_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 180 } } }] }
+  }
+}

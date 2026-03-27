@@ -1,0 +1,13 @@
+{
+  "Parent": "Weapon_Spear_Iron",
+  "TranslationProperties": {
+    "Name": "Dragon Piercer",
+    "Description": "A spear that can punch through dragon scales."
+  },
+  "MaxStack": 1,
+  "MaxDurability": 1000,
+  "DurabilityLossOnHit": 0.1,
+  "InteractionVars": {
+    "Spear_Stab_Damage": { "Interactions": [{ "Parent": "Spear_Stab_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 14 }, "Type": "Absolute" } }] }
+  }
+}

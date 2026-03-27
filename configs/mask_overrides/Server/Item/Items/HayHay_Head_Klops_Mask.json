@@ -1,0 +1,97 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.HayHay_Head_Klops_Mask.name",
+    "Description": "server.items.HayHay_Head_Klops_Mask.description"
+  },
+  "Parent": "Armor_Cloth_Wool_Head",
+  "ItemLevel": 50,
+  "Icon": "Icons/ItemsGenerated/HayHay_Head_Klops_Mask.png",
+  "IconProperties": {
+    "Scale": 0.4,
+    "Rotation": [
+      22.5,
+      47.815,
+      22.5
+    ],
+    "Translation": [
+      -2,
+      -59
+    ]
+  },
+  "Model": "Resources/Characters/Haircuts/HayHay_Klops_Mask/HayHay_Klops_Mask.blockymodel",
+  "Texture": "Resources/Characters/Haircuts/HayHay_Klops_Mask/HayHay_Klops_Mask.png",
+  "Armor": {
+    "ArmorSlot": "Head",
+    "BaseDamageResistance": 0,
+    "CosmeticsToHide": [
+      "HeadAccessory",
+      "Haircut",
+      "FacialHair",
+      "HeadAccessory",
+      "FaceAccessory",
+      "Ear",
+      "EarAccessory"
+    ],
+    "DamageResistance": {
+      "Physical": [
+        {
+          "Amount": 0.16,
+          "CalculationType": "Multiplicative"
+        }
+      ],
+      "Projectile": [
+        {
+          "Amount": 0.16,
+          "CalculationType": "Multiplicative"
+        }
+      ]
+    },
+    "StatModifiers": {
+      "Health": [
+        {
+          "CalculationType": "Additive",
+          "Amount": 35
+        }
+      ]
+    },
+    "Regenerating": {
+      "Health": [
+        {
+          "Interval": 1,
+          "Amount": 1.2,
+          "RegenType": "Additive"
+        }
+      ],
+      "Stamina": [
+        {
+          "Interval": 0.2,
+          "Amount": 0.18,
+          "RegenType": "Additive"
+        }
+      ]
+    },
+    "DamageClassEnhancement": {
+      "Light": [
+        {
+          "Amount": 0.07,
+          "CalculationType": "Multiplicative"
+        }
+      ]
+    }
+  },
+  "Tags": {
+    "Type": [
+      "Armor"
+    ],
+    "Family": [
+      "Cloth_Wool"
+    ]
+  },
+  "MaxDurability": 500,
+  "ItemSoundSetId": "ISS_Armor_Cloth",
+  "Light": {
+    "Color": "#465",
+    "Radius": 1
+  },
+  "Quality": "Legendary"
+}

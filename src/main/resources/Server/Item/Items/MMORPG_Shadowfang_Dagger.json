@@ -1,0 +1,19 @@
+{
+  "Parent": "Weapon_Daggers_Doomed",
+  "TranslationProperties": {
+    "Name": "Shadowfang Dagger",
+    "Description": "A cursed dagger that strikes from the shadows."
+  },
+  "MaxStack": 1,
+  "MaxDurability": 500,
+  "DurabilityLossOnHit": 0.1,
+  "InteractionVars": {
+    "Swing_Left_Damage": { "Interactions": [{ "Parent": "Weapon_Daggers_Primary_Swing_Left_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 6 } } }] },
+    "Swing_Right_Damage": { "Interactions": [{ "Parent": "Weapon_Daggers_Primary_Swing_Right_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 6 } } }] },
+    "Stab_Left_Damage": { "Interactions": [{ "Parent": "Weapon_Daggers_Primary_Stab_Left_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 10 } } }] },
+    "Stab_Right_Damage": { "Interactions": [{ "Parent": "Weapon_Daggers_Primary_Stab_Right_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 14 } } }] },
+    "Razorstrike_Slash_Damage": { "Interactions": [{ "Parent": "Weapon_Daggers_Signature_Razorstrike_Slash_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 65 } } }] },
+    "Razorstrike_Sweep_Damage": { "Interactions": [{ "Parent": "Weapon_Daggers_Signature_Razorstrike_Sweep_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 80 } } }] },
+    "Razorstrike_Lunge_Damage": { "Interactions": [{ "Parent": "Weapon_Daggers_Signature_Razorstrike_Lunge_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 100 } } }] }
+  }
+}

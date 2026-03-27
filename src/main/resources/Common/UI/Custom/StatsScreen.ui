@@ -1,0 +1,362 @@
+Group {
+    Anchor: (Full: 0);
+    LayoutMode: Center;
+    Background: #000000(0.5);
+
+    Group #MainPanel {
+        Anchor: (Width: 520, Height: 880);
+        LayoutMode: Top;
+        Padding: (Full: 15);
+        Background: #1A1A2E(0.9);
+        OutlineColor: #4A4A7E;
+        OutlineSize: 2;
+
+        Group #TopBar {
+            Anchor: (Height: 36);
+            LayoutMode: Left;
+            TextButton #BtnBack {
+                Anchor: (Width: 80, Height: 30);
+                Text: "Back";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Label #Header {
+            Anchor: (Height: 45);
+            Text: "Character Stats";
+            Style: (FontSize: 24, HorizontalAlignment: Center, VerticalAlignment: Center);
+        }
+
+        Group #LevelRow {
+            Anchor: (Height: 32);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 200); Padding: (Left: 10); Text: "Level:"; }
+            Label #LevelValue { Anchor: (Width: 60); Text: "1"; }
+        }
+
+        Group #PointsRow {
+            Anchor: (Height: 32);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 200); Padding: (Left: 10); Text: "Available Points:"; }
+            Label #PointsValue { Anchor: (Width: 100); Text: "5 / 5"; }
+        }
+
+        Group { Anchor: (Height: 8); }
+
+        Group #STRRow {
+            Anchor: (Height: 40);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 180); Padding: (Left: 10); Text: "Strength (STR)"; }
+            TextButton #STRMinus {
+                Anchor: (Width: 40, Height: 36);
+                Text: "-";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Label #STRValue {
+                Anchor: (Width: 60);
+                Text: "0";
+                Style: (HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+            TextButton #STRPlus {
+                Anchor: (Width: 40, Height: 36);
+                Text: "+";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group #DEXRow {
+            Anchor: (Height: 40);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 180); Padding: (Left: 10); Text: "Dexterity (DEX)"; }
+            TextButton #DEXMinus {
+                Anchor: (Width: 40, Height: 36);
+                Text: "-";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Label #DEXValue {
+                Anchor: (Width: 60);
+                Text: "0";
+                Style: (HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+            TextButton #DEXPlus {
+                Anchor: (Width: 40, Height: 36);
+                Text: "+";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group #VITRow {
+            Anchor: (Height: 40);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 180); Padding: (Left: 10); Text: "Vitality (VIT)"; }
+            TextButton #VITMinus {
+                Anchor: (Width: 40, Height: 36);
+                Text: "-";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Label #VITValue {
+                Anchor: (Width: 60);
+                Text: "0";
+                Style: (HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+            TextButton #VITPlus {
+                Anchor: (Width: 40, Height: 36);
+                Text: "+";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group #INTRow {
+            Anchor: (Height: 40);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 180); Padding: (Left: 10); Text: "Intellect (INT)"; }
+            TextButton #INTMinus {
+                Anchor: (Width: 40, Height: 36);
+                Text: "-";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Label #INTValue {
+                Anchor: (Width: 60);
+                Text: "0";
+                Style: (HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+            TextButton #INTPlus {
+                Anchor: (Width: 40, Height: 36);
+                Text: "+";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group #PRERow {
+            Anchor: (Height: 40);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 180); Padding: (Left: 10); Text: "Presence (PRE)"; }
+            TextButton #PREMinus {
+                Anchor: (Width: 40, Height: 36);
+                Text: "-";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Label #PREValue {
+                Anchor: (Width: 60);
+                Text: "0";
+                Style: (HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+            TextButton #PREPlus {
+                Anchor: (Width: 40, Height: 36);
+                Text: "+";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group #ARCRow {
+            Anchor: (Height: 40);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 180); Padding: (Left: 10); Text: "Arcana (ARC)"; }
+            TextButton #ARCMinus {
+                Anchor: (Width: 40, Height: 36);
+                Text: "-";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Label #ARCValue {
+                Anchor: (Width: 60);
+                Text: "0";
+                Style: (HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+            TextButton #ARCPlus {
+                Anchor: (Width: 40, Height: 36);
+                Text: "+";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group { Anchor: (Height: 12); }
+
+        Label #DerivedHeader {
+            Anchor: (Height: 30);
+            Text: "Derived Stats";
+        }
+
+        Group #DerivedRow1 {
+            Anchor: (Height: 22);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 120); Padding: (Left: 10); Text: "Max HP:"; Style: (FontSize: 12); }
+            Label #MaxHPValue { Anchor: (Width: 120); Text: "100"; Style: (FontSize: 12); }
+            Label { Anchor: (Width: 120); Padding: (Left: 10); Text: "Max Stamina:"; Style: (FontSize: 12); }
+            Label #MaxStaminaValue { Anchor: (Width: 120); Text: "100"; Style: (FontSize: 12); }
+        }
+
+        Group #DerivedRow2 {
+            Anchor: (Height: 22);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 120); Padding: (Left: 10); Text: "Max Mana:"; Style: (FontSize: 12); }
+            Label #MaxManaValue { Anchor: (Width: 120); Text: "50"; Style: (FontSize: 12); }
+            Label { Anchor: (Width: 120); Padding: (Left: 10); Text: "Mana Regen:"; Style: (FontSize: 12); }
+            Label #ManaRegenValue { Anchor: (Width: 120); Text: "1.0/s"; Style: (FontSize: 12); }
+        }
+
+        Group #DerivedRow3 {
+            Anchor: (Height: 22);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 120); Padding: (Left: 10); Text: "Melee Dmg:"; Style: (FontSize: 12); }
+            Label #MeleeDmgValue { Anchor: (Width: 120); Text: "100%"; Style: (FontSize: 12); }
+            Label { Anchor: (Width: 120); Padding: (Left: 10); Text: "Ranged Dmg:"; Style: (FontSize: 12); }
+            Label #RangedDmgValue { Anchor: (Width: 120); Text: "100%"; Style: (FontSize: 12); }
+        }
+
+        Group #DerivedRow4 {
+            Anchor: (Height: 22);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 120); Padding: (Left: 10); Text: "Spell Dmg:"; Style: (FontSize: 12); }
+            Label #SpellDmgValue { Anchor: (Width: 120); Text: "100%"; Style: (FontSize: 12); }
+            Label { Anchor: (Width: 120); Padding: (Left: 10); Text: "Crit Chance:"; Style: (FontSize: 12); }
+            Label #CritChanceValue { Anchor: (Width: 120); Text: "0%"; Style: (FontSize: 12); }
+        }
+
+        Group #DerivedRow5 {
+            Anchor: (Height: 22);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 120); Padding: (Left: 10); Text: "Crit Dmg:"; Style: (FontSize: 12); }
+            Label #CritDmgValue { Anchor: (Width: 120); Text: "150%"; Style: (FontSize: 12); }
+            Label { Anchor: (Width: 120); Padding: (Left: 10); Text: "Miss:"; Style: (FontSize: 12); }
+            Label #MissValue { Anchor: (Width: 120); Text: "0%"; Style: (FontSize: 12); }
+        }
+
+        Group #DerivedRow6 {
+            Anchor: (Height: 22);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 120); Padding: (Left: 10); Text: "Dmg Resist:"; Style: (FontSize: 12); }
+            Label #ResistValue { Anchor: (Width: 120); Text: "0.0"; Style: (FontSize: 12); }
+            Label { Anchor: (Width: 120); Padding: (Left: 10); Text: "Fall DR:"; Style: (FontSize: 12); }
+            Label #FallDRValue { Anchor: (Width: 120); Text: "0%"; Style: (FontSize: 12); }
+        }
+
+        Group #DerivedRow7 {
+            Anchor: (Height: 22);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 120); Padding: (Left: 10); Text: "Healing:"; Style: (FontSize: 12); }
+            Label #HealingValue { Anchor: (Width: 120); Text: "100%"; Style: (FontSize: 12); }
+            Label { Anchor: (Width: 120); Padding: (Left: 10); Text: "Discount:"; Style: (FontSize: 12); }
+            Label #DiscountValue { Anchor: (Width: 120); Text: "0%"; Style: (FontSize: 12); }
+        }
+
+        Group #DerivedRow8 {
+            Anchor: (Height: 22);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 120); Padding: (Left: 10); Text: "Breath:"; Style: (FontSize: 12); }
+            Label #MaxOxygenValue { Anchor: (Width: 120); Text: "100"; Style: (FontSize: 12); }
+        }
+
+        Group { Anchor: (Height: 8); }
+
+        Group #SaveRow {
+            Anchor: (Height: 40);
+            LayoutMode: Left;
+            TextButton #BtnSave {
+                Anchor: (Width: 200, Height: 34);
+                Text: "Save Points";
+                Background: #2A5A2A(0.9);
+                OutlineColor: #4A7A4A;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Group { Anchor: (Width: 10); }
+            TextButton #BtnUndo {
+                Anchor: (Width: 120, Height: 34);
+                Text: "Undo";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group { Anchor: (Height: 10); }
+
+        Group #StatDefs {
+            Anchor: (Height: 140);
+            LayoutMode: Top;
+            Padding: (Left: 10, Right: 10);
+            Background: #2A2A4E(0.5);
+            OutlineColor: #3A3A5E;
+            OutlineSize: 1;
+
+            Group { Anchor: (Height: 4); }
+            Label { Anchor: (Height: 18); Padding: (Left: 10); Text: "STR - Melee damage, crit damage"; Style: (FontSize: 12); }
+            Group { Anchor: (Height: 2); }
+            Label { Anchor: (Height: 18); Padding: (Left: 10); Text: "DEX - Stamina, crit chance, ranged damage, fall DR"; Style: (FontSize: 12); }
+            Group { Anchor: (Height: 2); }
+            Label { Anchor: (Height: 18); Padding: (Left: 10); Text: "VIT - Max HP, breath duration, damage resist"; Style: (FontSize: 12); }
+            Group { Anchor: (Height: 2); }
+            Label { Anchor: (Height: 18); Padding: (Left: 10); Text: "INT - Mana regen, spell damage"; Style: (FontSize: 12); }
+            Group { Anchor: (Height: 2); }
+            Label { Anchor: (Height: 18); Padding: (Left: 10); Text: "PRE - Shop discounts, enemy miss chance"; Style: (FontSize: 12); }
+            Group { Anchor: (Height: 2); }
+            Label { Anchor: (Height: 18); Padding: (Left: 10); Text: "ARC - Max mana, healing power"; Style: (FontSize: 12); }
+        }
+
+        Group { Anchor: (Height: 8); }
+
+        Group #ResetRow {
+            Anchor: (Height: 40);
+            LayoutMode: Left;
+            TextButton #BtnReset {
+                Anchor: (Width: 200, Height: 34);
+                Text: "Reset Stats";
+                Background: #5A2A2A(0.9);
+                OutlineColor: #7A4A4A;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Group { Anchor: (Width: 10); }
+            Label #ResetStatus {
+                Anchor: (Width: 250, Height: 34);
+                Text: "";
+                Style: (VerticalAlignment: Center);
+            }
+        }
+
+        Group #ConfirmRow {
+            Anchor: (Height: 0);
+            LayoutMode: Left;
+        }
+    }
+}

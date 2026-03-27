@@ -1,0 +1,10 @@
+{
+  "_comment": "MMORPG Override — Zone 1 Swamps night spawns",
+  "Environments": ["Env_Zone1_Swamp"],
+  "NPCs": [
+    { "Id": "Ghoul",              "Weight": 4,  "SpawnBlockSet": "Soil" },
+    { "Id": "Zombie_Aberrant",    "Weight": 3,  "SpawnBlockSet": "Soil", "Flock": { "Size": [1, 2] } }
+  ],
+  "DayTimeRange": [19, 5],
+  "LightRanges": { "Light": [0, 8] }
+}

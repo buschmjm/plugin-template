@@ -1,0 +1,168 @@
+Group {
+    Anchor: (Full: 0);
+    LayoutMode: Center;
+    Background: #000000(0.5);
+
+    Group #Panel {
+        Anchor: (Width: 480, Height: 460);
+        LayoutMode: Top;
+        Padding: (Full: 15);
+        Background: #1A1A2E(0.9);
+        OutlineColor: #4A4A7E;
+        OutlineSize: 2;
+
+        Group #TopBar {
+            Anchor: (Height: 36);
+            LayoutMode: Left;
+            TextButton #BtnBack {
+                Anchor: (Width: 80, Height: 30);
+                Text: "Back";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Label #Title {
+            Anchor: (Height: 36);
+            Text: "Leaderboard";
+            Style: (FontSize: 24, HorizontalAlignment: Center, VerticalAlignment: Center);
+        }
+
+        Group #TabRow {
+            Anchor: (Height: 40);
+            LayoutMode: Left;
+
+            TextButton #BtnLevel {
+                Anchor: (Width: 100, Height: 32);
+                Text: "Level";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            TextButton #BtnGold {
+                Anchor: (Width: 100, Height: 32);
+                Text: "Gold";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            TextButton #BtnKills {
+                Anchor: (Width: 100, Height: 32);
+                Text: "Kills";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group #EntryList {
+            Anchor: (Height: 280);
+            LayoutMode: Top;
+
+            Label #Entry1 {
+                Anchor: (Height: 24);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Entry2 {
+                Anchor: (Height: 24);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Entry3 {
+                Anchor: (Height: 24);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Entry4 {
+                Anchor: (Height: 24);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Entry5 {
+                Anchor: (Height: 24);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Entry6 {
+                Anchor: (Height: 24);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Entry7 {
+                Anchor: (Height: 24);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Entry8 {
+                Anchor: (Height: 24);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Entry9 {
+                Anchor: (Height: 24);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Entry10 {
+                Anchor: (Height: 24);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+        }
+    }
+}

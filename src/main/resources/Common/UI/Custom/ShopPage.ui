@@ -1,0 +1,432 @@
+Group {
+    Anchor: (Full: 0);
+    LayoutMode: Center;
+    Background: #000000(0.55);
+
+    Group #Panel {
+        Anchor: (Width: 820, Height: 620);
+        LayoutMode: Top;
+        Padding: (Top: 14, Bottom: 14, Left: 14, Right: 14);
+        Background: #111122(0.95);
+        OutlineColor: #3A3A6E;
+        OutlineSize: 2;
+
+        Group #TopBar {
+            Anchor: (Height: 38);
+            LayoutMode: Left;
+            TextButton #BtnBack {
+                Anchor: (Width: 70, Height: 30);
+                Text: "Back";
+                Background: #2A2A4E(0.9);
+                OutlineColor: #4A4A7E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Label #Title {
+                Anchor: (Width: 660, Height: 34);
+                Text: "Weapon Shop";
+                Style: (FontSize: 22, HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+        }
+
+        Group #GoldBar {
+            Anchor: (Height: 28);
+            Background: #1A1A30(0.8);
+            Padding: (Left: 10, Right: 10);
+            LayoutMode: Left;
+            Label #GoldDisplay {
+                Anchor: (Width: 400, Height: 28);
+                Text: "Gold: 0";
+                Style: (VerticalAlignment: Center);
+            }
+        }
+
+        Group { Anchor: (Height: 6); }
+
+        Group #Body {
+            Anchor: (Height: 500);
+            LayoutMode: Left;
+
+            Group #LeftPanel {
+                Anchor: (Width: 350, Height: 500);
+                LayoutMode: Top;
+                Padding: (Right: 6);
+
+                Group #CategoryRow1 {
+                    Anchor: (Height: 28);
+                    LayoutMode: Left;
+                    TextButton #CatSwords {
+                        Anchor: (Width: 68, Height: 24);
+                        Text: "Swords";
+                        Background: #4A3A6E(0.9);
+                        OutlineColor: #6A5A9E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 10, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                    TextButton #CatAxes {
+                        Anchor: (Width: 48, Height: 24);
+                        Text: "Axes";
+                        Background: #2A2A4E(0.9);
+                        OutlineColor: #4A4A7E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 10, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                    TextButton #CatDaggers {
+                        Anchor: (Width: 62, Height: 24);
+                        Text: "Daggers";
+                        Background: #2A2A4E(0.9);
+                        OutlineColor: #4A4A7E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 10, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                    TextButton #CatSpears {
+                        Anchor: (Width: 56, Height: 24);
+                        Text: "Spears";
+                        Background: #2A2A4E(0.9);
+                        OutlineColor: #4A4A7E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 10, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                }
+
+                Group #CategoryRow2 {
+                    Anchor: (Height: 28);
+                    LayoutMode: Left;
+                    TextButton #CatStaves {
+                        Anchor: (Width: 56, Height: 24);
+                        Text: "Staves";
+                        Background: #2A2A4E(0.9);
+                        OutlineColor: #4A4A7E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 10, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                    TextButton #CatBows {
+                        Anchor: (Width: 48, Height: 24);
+                        Text: "Bows";
+                        Background: #2A2A4E(0.9);
+                        OutlineColor: #4A4A7E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 10, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                    TextButton #CatXbows {
+                        Anchor: (Width: 56, Height: 24);
+                        Text: "Xbows";
+                        Background: #2A2A4E(0.9);
+                        OutlineColor: #4A4A7E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 10, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                    TextButton #CatElemental {
+                        Anchor: (Width: 72, Height: 24);
+                        Text: "Elemental";
+                        Background: #2A2A4E(0.9);
+                        OutlineColor: #4A4A7E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 10, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                }
+
+                Group #CategoryRow3 {
+                    Anchor: (Height: 28);
+                    LayoutMode: Left;
+                    TextButton #CatPremium {
+                        Anchor: (Width: 64, Height: 24);
+                        Text: "Premium";
+                        Background: #4E2A2A(0.9);
+                        OutlineColor: #8E4A4A;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 10, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                    TextButton #CatHelmets {
+                        Anchor: (Width: 58, Height: 24);
+                        Text: "Helmets";
+                        Background: #2A4A2E(0.9);
+                        OutlineColor: #4A6A4E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 10, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                    TextButton #CatChest {
+                        Anchor: (Width: 50, Height: 24);
+                        Text: "Chest";
+                        Background: #2A4A2E(0.9);
+                        OutlineColor: #4A6A4E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 10, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                    TextButton #CatGloves {
+                        Anchor: (Width: 54, Height: 24);
+                        Text: "Gloves";
+                        Background: #2A4A2E(0.9);
+                        OutlineColor: #4A6A4E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 10, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                    TextButton #CatLegs {
+                        Anchor: (Width: 48, Height: 24);
+                        Text: "Legs";
+                        Background: #2A4A2E(0.9);
+                        OutlineColor: #4A6A4E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 10, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                }
+
+                Group { Anchor: (Height: 4); }
+
+                Group #ItemList {
+                    Anchor: (Height: 410);
+                    LayoutMode: Top;
+
+                    TextButton #Item1 {
+                        Anchor: (Height: 34);
+                        Text: "";
+                        Background: #1E1E3A(0.8);
+                        OutlineColor: #3A3A5E;
+                        OutlineSize: 1;
+                        Padding: (Left: 10);
+                        Style: (Default: (LabelStyle: (VerticalAlignment: Center)));
+                    }
+                    Group { Anchor: (Height: 2); }
+                    TextButton #Item2 {
+                        Anchor: (Height: 34);
+                        Text: "";
+                        Background: #1E1E3A(0.8);
+                        OutlineColor: #3A3A5E;
+                        OutlineSize: 1;
+                        Padding: (Left: 10);
+                        Style: (Default: (LabelStyle: (VerticalAlignment: Center)));
+                    }
+                    Group { Anchor: (Height: 2); }
+                    TextButton #Item3 {
+                        Anchor: (Height: 34);
+                        Text: "";
+                        Background: #1E1E3A(0.8);
+                        OutlineColor: #3A3A5E;
+                        OutlineSize: 1;
+                        Padding: (Left: 10);
+                        Style: (Default: (LabelStyle: (VerticalAlignment: Center)));
+                    }
+                    Group { Anchor: (Height: 2); }
+                    TextButton #Item4 {
+                        Anchor: (Height: 34);
+                        Text: "";
+                        Background: #1E1E3A(0.8);
+                        OutlineColor: #3A3A5E;
+                        OutlineSize: 1;
+                        Padding: (Left: 10);
+                        Style: (Default: (LabelStyle: (VerticalAlignment: Center)));
+                    }
+                    Group { Anchor: (Height: 2); }
+                    TextButton #Item5 {
+                        Anchor: (Height: 34);
+                        Text: "";
+                        Background: #1E1E3A(0.8);
+                        OutlineColor: #3A3A5E;
+                        OutlineSize: 1;
+                        Padding: (Left: 10);
+                        Style: (Default: (LabelStyle: (VerticalAlignment: Center)));
+                    }
+                    Group { Anchor: (Height: 2); }
+                    TextButton #Item6 {
+                        Anchor: (Height: 34);
+                        Text: "";
+                        Background: #1E1E3A(0.8);
+                        OutlineColor: #3A3A5E;
+                        OutlineSize: 1;
+                        Padding: (Left: 10);
+                        Style: (Default: (LabelStyle: (VerticalAlignment: Center)));
+                    }
+                    Group { Anchor: (Height: 2); }
+                    TextButton #Item7 {
+                        Anchor: (Height: 34);
+                        Text: "";
+                        Background: #1E1E3A(0.8);
+                        OutlineColor: #3A3A5E;
+                        OutlineSize: 1;
+                        Padding: (Left: 10);
+                        Style: (Default: (LabelStyle: (VerticalAlignment: Center)));
+                    }
+                    Group { Anchor: (Height: 2); }
+                    TextButton #Item8 {
+                        Anchor: (Height: 34);
+                        Text: "";
+                        Background: #1E1E3A(0.8);
+                        OutlineColor: #3A3A5E;
+                        OutlineSize: 1;
+                        Padding: (Left: 10);
+                        Style: (Default: (LabelStyle: (VerticalAlignment: Center)));
+                    }
+                    Group { Anchor: (Height: 2); }
+                    TextButton #Item9 {
+                        Anchor: (Height: 34);
+                        Text: "";
+                        Background: #1E1E3A(0.8);
+                        OutlineColor: #3A3A5E;
+                        OutlineSize: 1;
+                        Padding: (Left: 10);
+                        Style: (Default: (LabelStyle: (VerticalAlignment: Center)));
+                    }
+                    Group { Anchor: (Height: 2); }
+                    TextButton #Item10 {
+                        Anchor: (Height: 34);
+                        Text: "";
+                        Background: #1E1E3A(0.8);
+                        OutlineColor: #3A3A5E;
+                        OutlineSize: 1;
+                        Padding: (Left: 10);
+                        Style: (Default: (LabelStyle: (VerticalAlignment: Center)));
+                    }
+                    Group { Anchor: (Height: 2); }
+                    TextButton #Item11 {
+                        Anchor: (Height: 34);
+                        Text: "";
+                        Background: #1E1E3A(0.8);
+                        OutlineColor: #3A3A5E;
+                        OutlineSize: 1;
+                        Padding: (Left: 10);
+                        Style: (Default: (LabelStyle: (VerticalAlignment: Center)));
+                    }
+                }
+            }
+
+            Group #Divider {
+                Anchor: (Width: 2, Height: 500);
+                Background: #3A3A6E(0.6);
+            }
+
+            Group #RightPanel {
+                Anchor: (Width: 440, Height: 500);
+                LayoutMode: Top;
+                Padding: (Left: 14);
+
+                Label #DetailName {
+                    Anchor: (Height: 36);
+                    Text: "Select a weapon";
+                    Style: (FontSize: 20, VerticalAlignment: Center);
+                }
+
+                Label #DetailDesc {
+                    Anchor: (Height: 34);
+                    Text: "";
+                    Padding: (Left: 2);
+                    Style: (FontSize: 12, VerticalAlignment: Center);
+                }
+
+                Group { Anchor: (Height: 8); }
+
+                Group #DetailStatsBox {
+                    Anchor: (Height: 224);
+                    LayoutMode: Top;
+                    Padding: (Left: 4, Right: 4, Top: 6, Bottom: 6);
+                    Background: #1A1A30(0.7);
+                    OutlineColor: #2A2A4E;
+                    OutlineSize: 1;
+
+                    Label #StatHeader {
+                        Anchor: (Height: 22);
+                        Text: "- Stats -";
+                        Style: (FontSize: 13, HorizontalAlignment: Center, VerticalAlignment: Center);
+                    }
+
+                    Group { Anchor: (Height: 4); }
+
+                    Group #StatBaseDmg {
+                        Anchor: (Height: 22);
+                        LayoutMode: Left;
+                        Padding: (Left: 8);
+                        Label { Anchor: (Width: 180); Text: "Base Damage"; Style: (VerticalAlignment: Center); }
+                        Label #ValBaseDmg { Anchor: (Width: 200); Text: "--"; Style: (VerticalAlignment: Center); }
+                    }
+                    Group #StatDurability {
+                        Anchor: (Height: 22);
+                        LayoutMode: Left;
+                        Padding: (Left: 8);
+                        Label { Anchor: (Width: 180); Text: "Durability"; Style: (VerticalAlignment: Center); }
+                        Label #ValDurability { Anchor: (Width: 200); Text: "--"; Style: (VerticalAlignment: Center); }
+                    }
+                    Group #StatDmg {
+                        Anchor: (Height: 22);
+                        LayoutMode: Left;
+                        Padding: (Left: 8);
+                        Label { Anchor: (Width: 180); Text: "Damage Bonus"; Style: (VerticalAlignment: Center); }
+                        Label #ValDmg { Anchor: (Width: 200); Text: "--"; Style: (VerticalAlignment: Center); }
+                    }
+                    Group #StatHP {
+                        Anchor: (Height: 22);
+                        LayoutMode: Left;
+                        Padding: (Left: 8);
+                        Label { Anchor: (Width: 180); Text: "Bonus HP"; Style: (VerticalAlignment: Center); }
+                        Label #ValHP { Anchor: (Width: 200); Text: "--"; Style: (VerticalAlignment: Center); }
+                    }
+                    Group #StatCrit {
+                        Anchor: (Height: 22);
+                        LayoutMode: Left;
+                        Padding: (Left: 8);
+                        Label { Anchor: (Width: 180); Text: "Crit Chance"; Style: (VerticalAlignment: Center); }
+                        Label #ValCrit { Anchor: (Width: 200); Text: "--"; Style: (VerticalAlignment: Center); }
+                    }
+                    Group #StatStam {
+                        Anchor: (Height: 22);
+                        LayoutMode: Left;
+                        Padding: (Left: 8);
+                        Label { Anchor: (Width: 180); Text: "Bonus Stamina"; Style: (VerticalAlignment: Center); }
+                        Label #ValStam { Anchor: (Width: 200); Text: "--"; Style: (VerticalAlignment: Center); }
+                    }
+                    Group #StatMana {
+                        Anchor: (Height: 22);
+                        LayoutMode: Left;
+                        Padding: (Left: 8);
+                        Label { Anchor: (Width: 180); Text: "Bonus Mana"; Style: (VerticalAlignment: Center); }
+                        Label #ValMana { Anchor: (Width: 200); Text: "--"; Style: (VerticalAlignment: Center); }
+                    }
+                }
+
+                Group { Anchor: (Height: 6); }
+
+                Group #PriceRow {
+                    Anchor: (Height: 32);
+                    LayoutMode: Left;
+                    Padding: (Left: 4);
+                    Label { Anchor: (Width: 80); Text: "Price:"; Style: (FontSize: 16, VerticalAlignment: Center); }
+                    Label #DetailPrice {
+                        Anchor: (Width: 200);
+                        Text: "--";
+                        Style: (FontSize: 16, VerticalAlignment: Center);
+                    }
+                }
+
+                Label #DetailOwned {
+                    Anchor: (Height: 24);
+                    Text: "";
+                    Padding: (Left: 4);
+                    Style: (FontSize: 12, VerticalAlignment: Center);
+                }
+
+                Group { Anchor: (Height: 8); }
+
+                Group #ActionRow {
+                    Anchor: (Height: 42);
+                    LayoutMode: Left;
+
+                    TextButton #BuyBtn {
+                        Anchor: (Width: 180, Height: 36);
+                        Text: "Purchase";
+                        Background: #3A6A2E(0.9);
+                        OutlineColor: #5A8A4E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 14, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                    Group { Anchor: (Width: 8); }
+                    TextButton #EquipBtn {
+                        Anchor: (Width: 140, Height: 36);
+                        Text: "Equip";
+                        Background: #2A4A6E(0.9);
+                        OutlineColor: #4A6A8E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 14, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                }
+            }
+        }
+    }
+}

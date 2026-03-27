@@ -44,3 +44,9 @@ build/
 .kotlin
 devserver
 /.idea/
+
+### Allow tracked jars/zips in mods/, backup/, and configs/ ###
+!mods/*.jar
+!mods/*.zip
+!backup/
+!configs/

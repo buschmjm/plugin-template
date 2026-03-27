@@ -1,0 +1,19 @@
+{
+  "_comment": "Zone 3 - Borea/Whisperfrost (Level 15-30) arctic drops. Frost Bear pet egg from polar bear mobs.",
+  "Container": {
+    "Type": "Multiple",
+    "Containers": [
+      {
+        "$Comment": "---- Rare Pet Egg: Frost Bear (1%) ----",
+        "Type": "Choice",
+        "Weight": 1,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Egg_PetsPlus_Bear_Polar", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      }
+    ]
+  }
+}

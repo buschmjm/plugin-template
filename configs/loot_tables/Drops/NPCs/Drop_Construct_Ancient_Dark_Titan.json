@@ -1,0 +1,63 @@
+{
+  "_comment": "D03 Mini-boss - Construct Ancient Dark Titan. Adds: Ancient Guardian egg (~12%), unique weapon (~12%), T4 mask (~10%)",
+  "Container": {
+    "Type": "Multiple",
+    "Containers": [
+      {
+        "$Comment": "---- Guaranteed: Health Potions ----",
+        "Type": "Choice",
+        "Weight": 100,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Potion_Health_Large", "QuantityMin": 2, "QuantityMax": 3 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- Ore ----",
+        "Type": "Choice",
+        "Weight": 60,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Ore_Adamantite", "QuantityMin": 2, "QuantityMax": 5 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: Ancient Guardian Egg (12%) ----",
+        "Type": "Choice",
+        "Weight": 12,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Egg_PetsPlus_Construct_Ancient", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: Sentinels Will Battleaxe (12%) ----",
+        "Type": "Choice",
+        "Weight": 12,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Sentinels_Will", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: T4 Mask - Cactee (10%) ----",
+        "Type": "Choice",
+        "Weight": 10,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "HayHay_Head_Cactee_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      }
+    ]
+  }
+}

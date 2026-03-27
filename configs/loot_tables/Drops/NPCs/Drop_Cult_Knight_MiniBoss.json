@@ -1,0 +1,89 @@
+{
+  "_comment": "D01 Mini-bosses - Cult Knight Miniboss. Adds: mid-tier weapon drops, T3 Kweebec mask chance",
+  "Container": {
+    "Type": "Multiple",
+    "Containers": [
+      {
+        "$Comment": "---- Guaranteed: Health Potion ----",
+        "Type": "Choice",
+        "Weight": 100,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Potion_Health_Large", "QuantityMin": 1, "QuantityMax": 2 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- Ore ----",
+        "Type": "Choice",
+        "Weight": 50,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Ore_Mithril", "QuantityMin": 1, "QuantityMax": 2 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: Unique Weapon - Chrono Blade (15%) ----",
+        "Type": "Choice",
+        "Weight": 15,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Chrono_Blade", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: T3 Kweebec Mask - Random Color (12%) ----",
+        "Type": "Choice",
+        "Weight": 12,
+        "Containers": [
+          {
+            "Type": "Choice",
+            "Weight": 1,
+            "Containers": [
+              {
+                "Type": "Single",
+                "Weight": 15,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Brown_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 15,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Green_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 15,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Dark_Brown_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 15,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Yellow_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 12,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Orange_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 12,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Pink_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 10,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Red_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

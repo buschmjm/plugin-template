@@ -1,0 +1,15 @@
+{
+  "Parent": "Weapon_Battleaxe_Scythe_Void",
+  "TranslationProperties": {
+    "Name": "Death's Harvest",
+    "Description": "Each swing reaps life from your enemies."
+  },
+  "MaxStack": 1,
+  "MaxDurability": 1800,
+  "DurabilityLossOnHit": 0.1,
+  "InteractionVars": {
+    "Spear_Spin_Swing_Left_Damage": { "Interactions": [{ "Parent": "Spear_Spin_Swing_Left_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 22 }, "RandomPercentageModifier": 0.2, "Type": "Absolute" } }] },
+    "Spear_Spin_Swing_Right_Damage": { "Interactions": [{ "Parent": "Spear_Spin_Swing_Right_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 22 }, "RandomPercentageModifier": 0.2, "Type": "Absolute" } }] },
+    "Battleaxe_Swing_Left_Charged_Damage": { "Interactions": [{ "Parent": "Battleaxe_Swing_Left_Charged_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 50 }, "Type": "Absolute", "RandomPercentageModifier": 0.2 } }] }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "Parent": "Rock_Gem_Zephyr",
+  "BlockType": null,
+  "TranslationProperties": {
+    "Name": "Zephyr of Authority",
+    "Description": "An ethereal gemstone that channels PRE abilities"
+  },
+  "MaxStack": 1,
+  "Interactions": {
+    "Ability1": {
+      "Interactions": [
+        { "Type": "mmorpg_ability_cast" }
+      ]
+    },
+    "Ability2": {
+      "Interactions": [
+        { "Type": "mmorpg_ability_cast" }
+      ]
+    },
+    "Ability3": {
+      "Interactions": [
+        { "Type": "mmorpg_ability_cast" }
+      ]
+    }
+  },
+  "Utility": {
+    "Compatible": true,
+    "Usable": true,
+    "Interactions": {
+      "Ability1": {
+        "Interactions": [
+          { "Type": "mmorpg_ability_cast" }
+        ]
+      },
+      "Ability2": {
+        "Interactions": [
+          { "Type": "mmorpg_ability_cast" }
+        ]
+      },
+      "Ability3": {
+        "Interactions": [
+          { "Type": "mmorpg_ability_cast" }
+        ]
+      }
+    }
+  }
+}

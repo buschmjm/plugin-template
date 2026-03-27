@@ -1,0 +1,47 @@
+{
+  "Parent": "Rock_Gem_Diamond",
+  "BlockType": null,
+  "TranslationProperties": {
+    "Name": "Diamond of Fortitude",
+    "Description": "A brilliant gemstone that channels VIT abilities"
+  },
+  "MaxStack": 1,
+  "Interactions": {
+    "Ability1": {
+      "Interactions": [
+        { "Type": "mmorpg_ability_cast" }
+      ]
+    },
+    "Ability2": {
+      "Interactions": [
+        { "Type": "mmorpg_ability_cast" }
+      ]
+    },
+    "Ability3": {
+      "Interactions": [
+        { "Type": "mmorpg_ability_cast" }
+      ]
+    }
+  },
+  "Utility": {
+    "Compatible": true,
+    "Usable": true,
+    "Interactions": {
+      "Ability1": {
+        "Interactions": [
+          { "Type": "mmorpg_ability_cast" }
+        ]
+      },
+      "Ability2": {
+        "Interactions": [
+          { "Type": "mmorpg_ability_cast" }
+        ]
+      },
+      "Ability3": {
+        "Interactions": [
+          { "Type": "mmorpg_ability_cast" }
+        ]
+      }
+    }
+  }
+}

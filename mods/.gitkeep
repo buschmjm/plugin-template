@@ -1,0 +1,5 @@
+# Place all mod .jar files here that should be deployed to the server.
+# This includes both third-party mods and the built mmorpg-stats.jar.
+#
+# The update-hytale.sh script copies everything in this folder to the
+# server's PVC mods directory during deployment.

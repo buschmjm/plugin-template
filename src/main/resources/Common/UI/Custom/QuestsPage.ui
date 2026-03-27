@@ -1,0 +1,384 @@
+Group {
+    Anchor: (Full: 0);
+    LayoutMode: Center;
+    Background: #000000(0.5);
+
+    Group #Panel {
+        Anchor: (Width: 560, Height: 560);
+        LayoutMode: Top;
+        Padding: (Top: 16, Bottom: 16, Left: 15, Right: 15);
+        Background: #1A1A2E(0.9);
+        OutlineColor: #4A4A7E;
+        OutlineSize: 2;
+
+        Group #TopBar {
+            Anchor: (Height: 36);
+            LayoutMode: Left;
+            TextButton #BtnBack {
+                Anchor: (Width: 80, Height: 30);
+                Text: "Back";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Label #Title {
+            Anchor: (Height: 32);
+            Text: "Weekly Quests";
+            Style: (FontSize: 22, HorizontalAlignment: Center, VerticalAlignment: Center);
+        }
+
+        Group #SubHeader {
+            Anchor: (Height: 20);
+            LayoutMode: Left;
+            Label #ResetTimer {
+                Anchor: (Width: 265);
+                Text: "Resets in: --";
+                Style: (FontSize: 12, VerticalAlignment: Center);
+            }
+            Label #CompletedCount {
+                Anchor: (Width: 265);
+                Text: "Completed: 0/5";
+                Style: (FontSize: 12, HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+        }
+
+        Group { Anchor: (Height: 6); }
+
+        Group #QuestList {
+            Anchor: (Height: 430);
+            LayoutMode: Top;
+
+            Group #QuestCard1 {
+                Anchor: (Height: 80);
+                LayoutMode: Top;
+                Padding: (Top: 6, Bottom: 6, Left: 10, Right: 10);
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+
+                Group #Q1Row1 {
+                    Anchor: (Height: 20);
+                    LayoutMode: Left;
+                    Label #Q1Status {
+                        Anchor: (Width: 24, Height: 20);
+                        Text: "";
+                        Style: (FontSize: 14, VerticalAlignment: Center);
+                    }
+                    Label #Q1Name {
+                        Anchor: (Width: 370, Height: 20);
+                        Text: "";
+                        Style: (FontSize: 14, VerticalAlignment: Center);
+                    }
+                    TextButton #BtnTrack1 {
+                        Anchor: (Width: 110, Height: 22);
+                        Text: "Track";
+                        Background: #3A3A5E(0.9);
+                        OutlineColor: #5A5A8E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 11, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                }
+                Group #Q1Row2 {
+                    Anchor: (Height: 18);
+                    LayoutMode: Left;
+                    Label #Q1Desc {
+                        Anchor: (Width: 504);
+                        Text: "";
+                        Style: (FontSize: 11, VerticalAlignment: Center);
+                    }
+                }
+                Group #Q1Row3 {
+                    Anchor: (Height: 18);
+                    LayoutMode: Left;
+                    Group #Q1BarBg {
+                        Anchor: (Width: 340, Height: 10);
+                        Background: #1A1A2E(0.9);
+                        OutlineColor: #3A3A5E;
+                        OutlineSize: 1;
+                        Group #Q1BarFill {
+                            Anchor: (Left: 0, Top: 0, Bottom: 0, Width: 0);
+                        }
+                    }
+                    Label #Q1Progress {
+                        Anchor: (Width: 80);
+                        Text: "";
+                        Style: (FontSize: 11, HorizontalAlignment: Center, VerticalAlignment: Center);
+                    }
+                    Label #Q1Reward {
+                        Anchor: (Width: 80);
+                        Text: "";
+                        Style: (FontSize: 11, HorizontalAlignment: Center, VerticalAlignment: Center);
+                    }
+                }
+            }
+
+            Group { Anchor: (Height: 4); }
+
+            Group #QuestCard2 {
+                Anchor: (Height: 80);
+                LayoutMode: Top;
+                Padding: (Top: 6, Bottom: 6, Left: 10, Right: 10);
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+
+                Group #Q2Row1 {
+                    Anchor: (Height: 20);
+                    LayoutMode: Left;
+                    Label #Q2Status {
+                        Anchor: (Width: 24, Height: 20);
+                        Text: "";
+                        Style: (FontSize: 14, VerticalAlignment: Center);
+                    }
+                    Label #Q2Name {
+                        Anchor: (Width: 370, Height: 20);
+                        Text: "";
+                        Style: (FontSize: 14, VerticalAlignment: Center);
+                    }
+                    TextButton #BtnTrack2 {
+                        Anchor: (Width: 110, Height: 22);
+                        Text: "Track";
+                        Background: #3A3A5E(0.9);
+                        OutlineColor: #5A5A8E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 11, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                }
+                Group #Q2Row2 {
+                    Anchor: (Height: 18);
+                    LayoutMode: Left;
+                    Label #Q2Desc {
+                        Anchor: (Width: 504);
+                        Text: "";
+                        Style: (FontSize: 11, VerticalAlignment: Center);
+                    }
+                }
+                Group #Q2Row3 {
+                    Anchor: (Height: 18);
+                    LayoutMode: Left;
+                    Group #Q2BarBg {
+                        Anchor: (Width: 340, Height: 10);
+                        Background: #1A1A2E(0.9);
+                        OutlineColor: #3A3A5E;
+                        OutlineSize: 1;
+                        Group #Q2BarFill {
+                            Anchor: (Left: 0, Top: 0, Bottom: 0, Width: 0);
+                        }
+                    }
+                    Label #Q2Progress {
+                        Anchor: (Width: 80);
+                        Text: "";
+                        Style: (FontSize: 11, HorizontalAlignment: Center, VerticalAlignment: Center);
+                    }
+                    Label #Q2Reward {
+                        Anchor: (Width: 80);
+                        Text: "";
+                        Style: (FontSize: 11, HorizontalAlignment: Center, VerticalAlignment: Center);
+                    }
+                }
+            }
+
+            Group { Anchor: (Height: 4); }
+
+            Group #QuestCard3 {
+                Anchor: (Height: 80);
+                LayoutMode: Top;
+                Padding: (Top: 6, Bottom: 6, Left: 10, Right: 10);
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+
+                Group #Q3Row1 {
+                    Anchor: (Height: 20);
+                    LayoutMode: Left;
+                    Label #Q3Status {
+                        Anchor: (Width: 24, Height: 20);
+                        Text: "";
+                        Style: (FontSize: 14, VerticalAlignment: Center);
+                    }
+                    Label #Q3Name {
+                        Anchor: (Width: 370, Height: 20);
+                        Text: "";
+                        Style: (FontSize: 14, VerticalAlignment: Center);
+                    }
+                    TextButton #BtnTrack3 {
+                        Anchor: (Width: 110, Height: 22);
+                        Text: "Track";
+                        Background: #3A3A5E(0.9);
+                        OutlineColor: #5A5A8E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 11, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                }
+                Group #Q3Row2 {
+                    Anchor: (Height: 18);
+                    LayoutMode: Left;
+                    Label #Q3Desc {
+                        Anchor: (Width: 504);
+                        Text: "";
+                        Style: (FontSize: 11, VerticalAlignment: Center);
+                    }
+                }
+                Group #Q3Row3 {
+                    Anchor: (Height: 18);
+                    LayoutMode: Left;
+                    Group #Q3BarBg {
+                        Anchor: (Width: 340, Height: 10);
+                        Background: #1A1A2E(0.9);
+                        OutlineColor: #3A3A5E;
+                        OutlineSize: 1;
+                        Group #Q3BarFill {
+                            Anchor: (Left: 0, Top: 0, Bottom: 0, Width: 0);
+                        }
+                    }
+                    Label #Q3Progress {
+                        Anchor: (Width: 80);
+                        Text: "";
+                        Style: (FontSize: 11, HorizontalAlignment: Center, VerticalAlignment: Center);
+                    }
+                    Label #Q3Reward {
+                        Anchor: (Width: 80);
+                        Text: "";
+                        Style: (FontSize: 11, HorizontalAlignment: Center, VerticalAlignment: Center);
+                    }
+                }
+            }
+
+            Group { Anchor: (Height: 4); }
+
+            Group #QuestCard4 {
+                Anchor: (Height: 80);
+                LayoutMode: Top;
+                Padding: (Top: 6, Bottom: 6, Left: 10, Right: 10);
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+
+                Group #Q4Row1 {
+                    Anchor: (Height: 20);
+                    LayoutMode: Left;
+                    Label #Q4Status {
+                        Anchor: (Width: 24, Height: 20);
+                        Text: "";
+                        Style: (FontSize: 14, VerticalAlignment: Center);
+                    }
+                    Label #Q4Name {
+                        Anchor: (Width: 370, Height: 20);
+                        Text: "";
+                        Style: (FontSize: 14, VerticalAlignment: Center);
+                    }
+                    TextButton #BtnTrack4 {
+                        Anchor: (Width: 110, Height: 22);
+                        Text: "Track";
+                        Background: #3A3A5E(0.9);
+                        OutlineColor: #5A5A8E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 11, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                }
+                Group #Q4Row2 {
+                    Anchor: (Height: 18);
+                    LayoutMode: Left;
+                    Label #Q4Desc {
+                        Anchor: (Width: 504);
+                        Text: "";
+                        Style: (FontSize: 11, VerticalAlignment: Center);
+                    }
+                }
+                Group #Q4Row3 {
+                    Anchor: (Height: 18);
+                    LayoutMode: Left;
+                    Group #Q4BarBg {
+                        Anchor: (Width: 340, Height: 10);
+                        Background: #1A1A2E(0.9);
+                        OutlineColor: #3A3A5E;
+                        OutlineSize: 1;
+                        Group #Q4BarFill {
+                            Anchor: (Left: 0, Top: 0, Bottom: 0, Width: 0);
+                        }
+                    }
+                    Label #Q4Progress {
+                        Anchor: (Width: 80);
+                        Text: "";
+                        Style: (FontSize: 11, HorizontalAlignment: Center, VerticalAlignment: Center);
+                    }
+                    Label #Q4Reward {
+                        Anchor: (Width: 80);
+                        Text: "";
+                        Style: (FontSize: 11, HorizontalAlignment: Center, VerticalAlignment: Center);
+                    }
+                }
+            }
+
+            Group { Anchor: (Height: 4); }
+
+            Group #QuestCard5 {
+                Anchor: (Height: 80);
+                LayoutMode: Top;
+                Padding: (Top: 6, Bottom: 6, Left: 10, Right: 10);
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+
+                Group #Q5Row1 {
+                    Anchor: (Height: 20);
+                    LayoutMode: Left;
+                    Label #Q5Status {
+                        Anchor: (Width: 24, Height: 20);
+                        Text: "";
+                        Style: (FontSize: 14, VerticalAlignment: Center);
+                    }
+                    Label #Q5Name {
+                        Anchor: (Width: 370, Height: 20);
+                        Text: "";
+                        Style: (FontSize: 14, VerticalAlignment: Center);
+                    }
+                    TextButton #BtnTrack5 {
+                        Anchor: (Width: 110, Height: 22);
+                        Text: "Track";
+                        Background: #3A3A5E(0.9);
+                        OutlineColor: #5A5A8E;
+                        OutlineSize: 1;
+                        Style: (Default: (LabelStyle: (FontSize: 11, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                }
+                Group #Q5Row2 {
+                    Anchor: (Height: 18);
+                    LayoutMode: Left;
+                    Label #Q5Desc {
+                        Anchor: (Width: 504);
+                        Text: "";
+                        Style: (FontSize: 11, VerticalAlignment: Center);
+                    }
+                }
+                Group #Q5Row3 {
+                    Anchor: (Height: 18);
+                    LayoutMode: Left;
+                    Group #Q5BarBg {
+                        Anchor: (Width: 340, Height: 10);
+                        Background: #1A1A2E(0.9);
+                        OutlineColor: #3A3A5E;
+                        OutlineSize: 1;
+                        Group #Q5BarFill {
+                            Anchor: (Left: 0, Top: 0, Bottom: 0, Width: 0);
+                        }
+                    }
+                    Label #Q5Progress {
+                        Anchor: (Width: 80);
+                        Text: "";
+                        Style: (FontSize: 11, HorizontalAlignment: Center, VerticalAlignment: Center);
+                    }
+                    Label #Q5Reward {
+                        Anchor: (Width: 80);
+                        Text: "";
+                        Style: (FontSize: 11, HorizontalAlignment: Center, VerticalAlignment: Center);
+                    }
+                }
+            }
+        }
+
+    }
+}

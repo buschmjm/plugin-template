@@ -1,0 +1,9 @@
+{
+  "_comment": "MMORPG Override — Void night spawns (Necromancer)",
+  "Environments": ["Env_Zone1_Plains", "Env_Zone2_Savanna", "Env_Zone3_Tundra"],
+  "NPCs": [
+    { "Id": "Necromancer_Void", "Weight": 2, "SpawnBlockSet": "Soil" }
+  ],
+  "DayTimeRange": [19, 5],
+  "LightRanges": { "Light": [0, 6] }
+}

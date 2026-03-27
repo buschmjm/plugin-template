@@ -1,0 +1,143 @@
+Group {
+    Anchor: (Full: 0);
+    LayoutMode: Center;
+    Background: #000000(0.5);
+
+    Group #Panel {
+        Anchor: (Width: 560, Height: 460);
+        LayoutMode: Top;
+        Padding: (Full: 15);
+        Background: #1A1A2E(0.9);
+        OutlineColor: #4A4A7E;
+        OutlineSize: 2;
+
+        Group #TopBar {
+            Anchor: (Height: 36);
+            LayoutMode: Left;
+            TextButton #BtnBack {
+                Anchor: (Width: 80, Height: 30);
+                Text: "Back";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Label #Title {
+            Anchor: (Height: 36);
+            Text: "Gold Log";
+            Style: (FontSize: 24, HorizontalAlignment: Center, VerticalAlignment: Center);
+        }
+
+        Label #BalanceLabel {
+            Anchor: (Height: 28);
+            Text: "Balance: 0";
+        }
+
+        Group #LogList {
+            Anchor: (Height: 300);
+            LayoutMode: Top;
+
+            Label #Log1 {
+                Anchor: (Height: 26);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Log2 {
+                Anchor: (Height: 26);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Log3 {
+                Anchor: (Height: 26);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Log4 {
+                Anchor: (Height: 26);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Log5 {
+                Anchor: (Height: 26);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Log6 {
+                Anchor: (Height: 26);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Log7 {
+                Anchor: (Height: 26);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Log8 {
+                Anchor: (Height: 26);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Log9 {
+                Anchor: (Height: 26);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Log10 {
+                Anchor: (Height: 26);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+        }
+    }
+}

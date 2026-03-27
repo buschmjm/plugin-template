@@ -1,0 +1,15 @@
+{
+  "_comment": "MMORPG Override — Mutant NPCs night spawns (moon-phase scaled)",
+  "Environments": ["Env_Zone1_Plains", "Env_Zone2_Savanna", "Env_Zone3_Tundra"],
+  "Despawn": { "DayTimeRange": [5, 19] },
+  "MoonPhaseWeightModifiers": [0.5, 1, 1.5, 1.5, 1],
+  "NPCs": [
+    { "Id": "Mutant_Skeleton",            "Weight": 3, "SpawnBlockSet": "Soil", "Flock": { "Size": [1, 2] } },
+    { "Id": "Mutant_Zombie",              "Weight": 3, "SpawnBlockSet": "Soil" },
+    { "Id": "Mutant_Hound_Bleached",      "Weight": 3, "SpawnBlockSet": "Soil" },
+    { "Id": "Mutant_Robotic_Skeleton",    "Weight": 1, "SpawnBlockSet": "Soil" },
+    { "Id": "Robotic_Mutant_Zombie",      "Weight": 1, "SpawnBlockSet": "Soil" }
+  ],
+  "DayTimeRange": [19, 5],
+  "LightRanges": { "Light": [0, 8] }
+}

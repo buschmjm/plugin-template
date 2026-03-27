@@ -1,0 +1,18 @@
+{
+  "Parent": "Weapon_Sword_Adamantite",
+  "TranslationProperties": {
+    "Name": "Anduril, Flame of the West",
+    "Description": "The legendary reforged blade of kings. Unmatched in power."
+  },
+  "MaxStack": 1,
+  "MaxDurability": 5000,
+  "DurabilityLossOnHit": 0.05,
+  "InteractionVars": {
+    "Swing_Left_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Swing_Left_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 22 } } }] },
+    "Swing_Right_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Swing_Right_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 22 } } }] },
+    "Swing_Down_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Swing_Down_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 40 } } }] },
+    "Thrust_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Thrust_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 58 } } }] },
+    "Vortexstrike_Spin_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Signature_Vortexstrike_Spin_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 180 } } }] },
+    "Vortexstrike_Stab_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Signature_Vortexstrike_Stab_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 500 } } }] }
+  }
+}

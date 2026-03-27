@@ -1,0 +1,74 @@
+Group {
+    Anchor: (Full: 0);
+    LayoutMode: Center;
+    Background: #000000(0.5);
+
+    Group #Panel {
+        Anchor: (Width: 520, Height: 520);
+        LayoutMode: Top;
+        Padding: (Top: 14, Bottom: 14, Left: 15, Right: 15);
+        Background: #1A1A2E(0.9);
+        OutlineColor: #4A4A7E;
+        OutlineSize: 2;
+
+        Group #TopBar {
+            Anchor: (Height: 36);
+            LayoutMode: Left;
+            TextButton #BtnBack {
+                Anchor: (Width: 70, Height: 30);
+                Text: "Back";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Group { Anchor: (Width: 10); }
+            TextButton #BtnGather {
+                Anchor: (Width: 120, Height: 30);
+                Text: "Gathering";
+                Background: #3A5A3E(0.9);
+                OutlineColor: #5A8A5E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Group { Anchor: (Width: 4); }
+            TextButton #BtnCraft {
+                Anchor: (Width: 120, Height: 30);
+                Text: "Crafting";
+                Background: #5A4A2E(0.9);
+                OutlineColor: #8A7A4E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Group { Anchor: (Width: 4); }
+            TextButton #BtnCombat {
+                Anchor: (Width: 120, Height: 30);
+                Text: "Combat";
+                Background: #5A2A2E(0.9);
+                OutlineColor: #8A4A4E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Label #Title {
+            Anchor: (Height: 28);
+            Text: "Professions";
+            Style: (FontSize: 22, HorizontalAlignment: Center, VerticalAlignment: Center);
+        }
+
+        Label #ExploredLabel {
+            Anchor: (Height: 18);
+            Text: "";
+            Style: (FontSize: 11, HorizontalAlignment: Center, VerticalAlignment: Center);
+        }
+
+        Group { Anchor: (Height: 4); }
+
+        Group #SkillList {
+            Anchor: (Height: 390);
+            LayoutMode: Top;
+            Label { Anchor: (Height: 0); Text: ""; }
+        }
+    }
+}

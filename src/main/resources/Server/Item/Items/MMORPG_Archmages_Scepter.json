@@ -1,0 +1,13 @@
+{
+  "Parent": "Weapon_Staff_Iron",
+  "TranslationProperties": {
+    "Name": "Archmage's Scepter",
+    "Description": "Channels raw arcane energy into devastating spells."
+  },
+  "MaxStack": 1,
+  "MaxDurability": 2500,
+  "DurabilityLossOnHit": 0.1,
+  "InteractionVars": {
+    "Staff_Cast_Summon_Charged": { "Interactions": [{ "Parent": "Staff_Cast_Summon_Charged", "DamageCalculator": { "BaseDamage": { "Physical": 18 } } }] }
+  }
+}

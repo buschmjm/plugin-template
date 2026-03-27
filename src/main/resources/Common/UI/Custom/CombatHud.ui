@@ -1,0 +1,99 @@
+Group {
+    Anchor: (Full: 0);
+
+    Group #HudPanel {
+        Anchor: (Bottom: 0, Left: 0, Width: 400, Height: 156);
+        Padding: (Full: 8);
+        LayoutMode: Top;
+
+        Group #LevelRow {
+            Anchor: (Height: 20);
+            LayoutMode: Left;
+            Label #LevelLabel { Anchor: (Width: 200); Text: "Lv. 1"; }
+            Label #XpLabel { Anchor: (Width: 200); Text: "XP: 0 / 100"; }
+        }
+
+        Group #XpBarBg {
+            Anchor: (Height: 10);
+            Group #XpBarFill {
+                Anchor: (Left: 0, Top: 0, Bottom: 0, Width: 0);
+            }
+        }
+
+        Group { Anchor: (Height: 4); }
+
+        Group #HpRow {
+            Anchor: (Height: 16);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 60); Text: "HP"; }
+            Group #HpBarBg {
+                Anchor: (Width: 220, Height: 14);
+                Group #HpBarFill {
+                    Anchor: (Left: 0, Top: 0, Bottom: 0, Width: 220);
+                }
+            }
+            Label #HpValue { Anchor: (Width: 100); Text: "100/100"; }
+        }
+
+        Group #ManaRow {
+            Anchor: (Height: 16);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 60); Text: "Mana"; }
+            Group #ManaBarBg {
+                Anchor: (Width: 220, Height: 14);
+                Group #ManaBarFill {
+                    Anchor: (Left: 0, Top: 0, Bottom: 0, Width: 220);
+                }
+            }
+            Label #ManaValue { Anchor: (Width: 100); Text: "50/50"; }
+        }
+
+        Group #StaminaRow {
+            Anchor: (Height: 16);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 60); Text: "Stam"; }
+            Group #StaminaBarBg {
+                Anchor: (Width: 220, Height: 14);
+                Group #StaminaBarFill {
+                    Anchor: (Left: 0, Top: 0, Bottom: 0, Width: 220);
+                }
+            }
+            Label #StaminaValue { Anchor: (Width: 100); Text: "100/100"; }
+        }
+
+        Group { Anchor: (Height: 4); }
+
+        Group #WeaponRow {
+            Anchor: (Height: 16);
+            LayoutMode: Left;
+            Label #WeaponLabel { Anchor: (Width: 380); Text: "No weapon"; }
+        }
+
+        Group #DurRow {
+            Anchor: (Height: 16);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 60); Text: "Dur"; }
+            Group #DurBarBg {
+                Anchor: (Width: 220, Height: 14);
+                Group #DurBarFill {
+                    Anchor: (Left: 0, Top: 0, Bottom: 0, Width: 220);
+                }
+            }
+            Label #DurValue { Anchor: (Width: 100); Text: ""; }
+        }
+    }
+
+    Group #QuestPanel {
+        Anchor: (Top: 60, Right: 0, Width: 260, Height: 200);
+        Padding: (Full: 6);
+        LayoutMode: Top;
+        Label { Anchor: (Height: 0); Text: ""; }
+    }
+
+    Group #QuestPopup {
+        Anchor: (Top: 60, Left: 0, Width: 340, Height: 60);
+        LayoutMode: Top;
+        Padding: (Full: 8);
+        Label { Anchor: (Height: 0); Text: ""; }
+    }
+}

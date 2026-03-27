@@ -1,0 +1,18 @@
+{
+  "Parent": "Weapon_Sword_Cobalt",
+  "TranslationProperties": {
+    "Name": "Cobalt Warblade",
+    "Description": "Blood-red steel that hungers for battle."
+  },
+  "MaxStack": 1,
+  "MaxDurability": 800,
+  "DurabilityLossOnHit": 0.1,
+  "InteractionVars": {
+    "Swing_Left_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Swing_Left_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 12 } } }] },
+    "Swing_Right_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Swing_Right_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 12 } } }] },
+    "Swing_Down_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Swing_Down_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 22 } } }] },
+    "Thrust_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Thrust_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 32 } } }] },
+    "Vortexstrike_Spin_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Signature_Vortexstrike_Spin_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 60 } } }] },
+    "Vortexstrike_Stab_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Signature_Vortexstrike_Stab_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 160 } } }] }
+  }
+}

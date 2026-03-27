@@ -1,0 +1,18 @@
+{
+  "Parent": "Weapon_Sword_Nexus",
+  "TranslationProperties": {
+    "Name": "Emerald Crystal Blade",
+    "Description": "Carved from a living crystal shard, pulsing with life."
+  },
+  "MaxStack": 1,
+  "MaxDurability": 2000,
+  "DurabilityLossOnHit": 0.1,
+  "InteractionVars": {
+    "Swing_Left_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Swing_Left_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 18 } } }] },
+    "Swing_Right_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Swing_Right_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 18 } } }] },
+    "Swing_Down_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Swing_Down_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 34 } } }] },
+    "Thrust_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Thrust_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 48 } } }] },
+    "Vortexstrike_Spin_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Signature_Vortexstrike_Spin_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 120 } } }] },
+    "Vortexstrike_Stab_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Signature_Vortexstrike_Stab_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 320 } } }] }
+  }
+}

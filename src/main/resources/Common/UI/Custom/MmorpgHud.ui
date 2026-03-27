@@ -1,0 +1,80 @@
+Group {
+    Anchor: (Full: 0);
+
+    Group #HudPanel {
+        Anchor: (Bottom: 0, Left: 0, Width: 320, Height: 130);
+        Padding: (Full: 8);
+        LayoutMode: Top;
+
+        Group #ClassRow {
+            Anchor: (Height: 18);
+            LayoutMode: Left;
+            Label #ClassLabel { Anchor: (Width: 320); Text: ""; }
+        }
+
+        Group #LevelRow {
+            Anchor: (Height: 18);
+            LayoutMode: Left;
+            Label #LevelLabel { Anchor: (Width: 160); Text: "Lv. 1"; }
+            Label #GoldLabel { Anchor: (Width: 160); Text: "Gold: 0"; }
+        }
+
+        Group #XpBarBg {
+            Anchor: (Height: 10);
+            Group #XpBarFill {
+                Anchor: (Left: 0, Top: 0, Bottom: 0, Width: 0);
+            }
+        }
+
+        Group { Anchor: (Height: 3); }
+
+        Group #HpRow {
+            Anchor: (Height: 14);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 50); Text: "HP"; }
+            Group #HpBarBg {
+                Anchor: (Width: 210, Height: 12);
+                Group #HpBarFill {
+                    Anchor: (Left: 0, Top: 0, Bottom: 0, Width: 210);
+                }
+            }
+            Label #HpValue { Anchor: (Width: 60); Text: "100"; }
+        }
+
+        Group #ManaRow {
+            Anchor: (Height: 14);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 50); Text: "Mana"; }
+            Group #ManaBarBg {
+                Anchor: (Width: 210, Height: 12);
+                Group #ManaBarFill {
+                    Anchor: (Left: 0, Top: 0, Bottom: 0, Width: 210);
+                }
+            }
+            Label #ManaValue { Anchor: (Width: 60); Text: "50"; }
+        }
+
+        Group #StaminaRow {
+            Anchor: (Height: 14);
+            LayoutMode: Left;
+            Label { Anchor: (Width: 50); Text: "Stam"; }
+            Group #StaminaBarBg {
+                Anchor: (Width: 210, Height: 12);
+                Group #StaminaBarFill {
+                    Anchor: (Left: 0, Top: 0, Bottom: 0, Width: 210);
+                }
+            }
+            Label #StaminaValue { Anchor: (Width: 60); Text: "100"; }
+        }
+    }
+
+    Group #QuestTracker {
+        Anchor: (Bottom: 10, Right: 0, Width: 220, Height: 60);
+        Padding: (Full: 6);
+        LayoutMode: Top;
+
+        Label #QuestHeader { Anchor: (Height: 16); Text: "Active Quests"; }
+        Label #Quest1 { Anchor: (Height: 18); Text: ""; }
+        Label #Quest2 { Anchor: (Height: 18); Text: ""; }
+    }
+}

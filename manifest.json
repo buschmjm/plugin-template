@@ -1,0 +1,17 @@
+{
+    "Group": "com.mmorpg",
+    "Name": "MMORPGStats",
+    "Version": "0.1.0",
+    "Description": "MMORPG base stats system with interactive stat allocation UI",
+    "Authors": [
+        {
+            "Name": "MMORPG Dev"
+        }
+    ],
+    "DisabledByDefault": false,
+    "IncludesAssetPack": true,
+    "Dependencies": {},
+    "OptionalDependencies": {},
+    "ServerVersion": "2026.02.19-1a311a592",
+    "Main": "com.mmorpg.stats.StatsPlugin"
+}

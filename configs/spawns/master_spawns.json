@@ -1,0 +1,125 @@
+{
+  "_comment": "Master Spawn Config — MMORPG Server",
+  "_comment2": "Overrides default spawn files from PJ Forgotten Creatures and Mutant NPCs.",
+  "_comment3": "All added creatures are controlled from this single config. Set Weight to 0 to disable a creature.",
+
+  "spawn_overrides": {
+    "_comment": "These files replace the mod defaults. Copy into Server/NPC/Spawn/World/ to override.",
+
+    "Zone1_Forests_Predator": {
+      "Environments": ["Env_Zone1_Forests", "Env_Zone1_Autumn", "Env_Zone1_Azure"],
+      "NPCs": [
+        { "Id": "Bear_Grizzly",       "Weight": 5,  "SpawnBlockSet": "Soil" },
+        { "Id": "Spider",             "Weight": 5,  "SpawnBlockSet": "Soil" },
+        { "Id": "BramblekinShaman",   "Weight": 3,  "SpawnBlockSet": "Soil" },
+        { "Id": "Mushee",             "Weight": 2,  "SpawnBlockSet": "Soil" }
+      ],
+      "DayTimeRange": [6, 18]
+    },
+
+    "Zone1_Swamps_Predator": {
+      "Environments": ["Env_Zone1_Swamp"],
+      "NPCs": [
+        { "Id": "Ghoul",              "Weight": 4,  "SpawnBlockSet": "Soil" },
+        { "Id": "Zombie_Aberrant",    "Weight": 3,  "SpawnBlockSet": "Soil", "Flock": { "Size": [1, 2] } }
+      ],
+      "DayTimeRange": [19, 5],
+      "LightRanges": { "Light": [0, 8] }
+    },
+
+    "Zone3_Glacial_Predator": {
+      "Environments": ["Env_Zone3_Glacial", "Env_Zone3_Tundra"],
+      "NPCs": [
+        { "Id": "ShadowKnight",       "Weight": 2,  "SpawnBlockSet": "Soil" }
+      ],
+      "DayTimeRange": [19, 5],
+      "LightRanges": { "Light": [0, 10] }
+    },
+
+    "Zone4_Jungles_Predator": {
+      "Environments": ["Env_Zone4_Jungles"],
+      "NPCs": [
+        { "Id": "Rex_Cave",           "Weight": 1,  "SpawnBlockSet": "Soil" },
+        { "Id": "Raptor_Cave",        "Weight": 10, "SpawnBlockSet": "Soil" },
+        { "Id": "Snapdragon",         "Weight": 10, "SpawnBlockSet": "Soil" },
+        { "Id": "Pterodactyl",        "Weight": 10, "SpawnBlockSet": "Soil" },
+        { "Id": "SaurianHunter",      "Weight": 2,  "SpawnBlockSet": "Soil", "Flock": "One_Or_Two" },
+        { "Id": "SlothianWarrior",    "Weight": 2,  "SpawnBlockSet": "Soil" },
+        { "Id": "Grooble",            "Weight": 3,  "SpawnBlockSet": "Soil" },
+        { "Id": "Mannequin",          "Weight": 1,  "SpawnBlockSet": "Soil" }
+      ],
+      "DayTimeRange": [6, 18]
+    },
+
+    "Zone4_Jungles_AncientConstruct": {
+      "Environments": ["Env_Zone4_Jungles"],
+      "NPCs": [
+        { "Id": "Construct_Ancient_Titan", "Weight": 1, "SpawnBlockSet": "Soil" }
+      ],
+      "DayTimeRange": [6, 18]
+    },
+
+    "Void_Tier1_Night": {
+      "Environments": ["Env_Zone1_Plains", "Env_Zone2_Savanna", "Env_Zone3_Tundra"],
+      "NPCs": [
+        { "Id": "Necromancer_Void",   "Weight": 2,  "SpawnBlockSet": "Soil" }
+      ],
+      "DayTimeRange": [19, 5],
+      "LightRanges": { "Light": [0, 6] }
+    },
+
+    "Mutant_Night_Spawns": {
+      "Environments": ["Env_Zone1_Plains", "Env_Zone2_Savanna", "Env_Zone3_Tundra"],
+      "Despawn": { "DayTimeRange": [5, 19] },
+      "MoonPhaseWeightModifiers": [0.5, 1, 1.5, 1.5, 1],
+      "NPCs": [
+        { "Id": "Mutant_Skeleton",            "Weight": 3,  "SpawnBlockSet": "Soil", "Flock": { "Size": [1, 2] } },
+        { "Id": "Mutant_Zombie",              "Weight": 3,  "SpawnBlockSet": "Soil" },
+        { "Id": "Mutant_Hound_Bleached",      "Weight": 3,  "SpawnBlockSet": "Soil" },
+        { "Id": "Mutant_Robotic_Skeleton",    "Weight": 1,  "SpawnBlockSet": "Soil" },
+        { "Id": "Robotic_Mutant_Zombie",      "Weight": 1,  "SpawnBlockSet": "Soil" }
+      ],
+      "DayTimeRange": [19, 5],
+      "LightRanges": { "Light": [0, 8] }
+    }
+  },
+
+  "disabled_mod_spawns": {
+    "_comment": "These are the original mod spawn files that should be replaced with empty/disabled versions.",
+    "PJ_ForgottenCreatures": [
+      "Server/NPC/Spawn/World/Zone1/Spawns_Zone1_Forests_Predator.json",
+      "Server/NPC/Spawn/World/Zone1/Spawns_Zone1_Swamps_Predator.json",
+      "Server/NPC/Spawn/World/Zone2/Spawns_Zone2_Savanna_Predator.json",
+      "Server/NPC/Spawn/World/Zone3/Spawns_Zone3_Glacial_Predator.json",
+      "Server/NPC/Spawn/World/Zone3/Spawns_Zone3_Tundra_Predator.json",
+      "Server/NPC/Spawn/World/Zone4/Spawns_Zone4_Jungles_Predator.json",
+      "Server/NPC/Spawn/World/Void/Tier1_Night_NPC3.json"
+    ],
+    "Mutant_NPCs": [
+      "Server/NPC/Spawn/World/Mutant_Skeleton_Spawn.json",
+      "Server/NPC/Spawn/World/Mutant_Zombie.json"
+    ],
+    "AncientConstructs": [
+      "Server/NPC/Spawn/World/Spawns_Zone4_Jungles_AncientConstruct.json"
+    ]
+  },
+
+  "creature_notes": {
+    "BramblekinShaman": "Zone 1 forests — rare tribal enemy, drops bramble staff + leather",
+    "Mushee":           "Zone 1 forests — peaceful mushroom creature, common",
+    "Ghoul":            "Zone 1 swamps — aggressive undead, night only",
+    "Zombie_Aberrant":  "Zone 1 swamps — mutated zombie, night only, pack spawns",
+    "ShadowKnight":     "Zone 3 glacial — elite undead knight, night only, rare",
+    "SaurianHunter":    "Zone 4 jungles — intelligent reptilian hunter, daytime",
+    "SlothianWarrior":  "Zone 4 jungles — slow but powerful, daytime",
+    "Grooble":          "Zone 4 jungles — mythic creature, semi-common",
+    "Mannequin":        "Zone 4 jungles — creepy mythic, very rare",
+    "Necromancer_Void": "All zones — void caster, night only, very rare",
+    "Mutant_Skeleton":  "Multi-zone — elite mutant, night only, moon-scaled",
+    "Mutant_Zombie":    "Multi-zone — elite mutant, night only, moon-scaled",
+    "Mutant_Hound_Bleached": "Multi-zone — fast mutant, night only, moon-scaled",
+    "Mutant_Robotic_Skeleton": "Multi-zone — rare robotic variant, night only",
+    "Robotic_Mutant_Zombie":   "Multi-zone — rare robotic variant, night only",
+    "Construct_Ancient_Titan":  "Zone 4 jungles — boss-level construct, very rare"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "_comment": "D03 Boss - Baron (Level 85-100). Highest tier boss. Adds: Both legendary pet eggs (~8% each), best unique weapons (~10% each), T4 masks (~8%)",
+  "Container": {
+    "Type": "Multiple",
+    "Containers": [
+      {
+        "$Comment": "---- Guaranteed: D03 Exit Key ----",
+        "Type": "Choice",
+        "Weight": 100,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "DungeonKey_D03_Exit", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- Guaranteed: Health Potions ----",
+        "Type": "Choice",
+        "Weight": 100,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Potion_Health_Large", "QuantityMin": 3, "QuantityMax": 5 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- Skull Artifact ----",
+        "Type": "Choice",
+        "Weight": 60,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Artifact_Skull", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- Adamantite Ore ----",
+        "Type": "Choice",
+        "Weight": 75,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Ore_Adamantite", "QuantityMin": 5, "QuantityMax": 12 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- Gems ----",
+        "Type": "Choice",
+        "Weight": 50,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Rock_Gem_Diamond", "QuantityMin": 1, "QuantityMax": 2 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: Legendary Pet Egg - Skeleton Champion (8%) ----",
+        "Type": "Choice",
+        "Weight": 8,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Egg_PetsPlus_Skeleton", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: Legendary Pet Egg - Ancient Guardian (8%) ----",
+        "Type": "Choice",
+        "Weight": 8,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Egg_PetsPlus_Construct_Ancient", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: Best Unique - God Slayer Battleaxe (10%) ----",
+        "Type": "Choice",
+        "Weight": 10,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Demon_Lord_Great_Axe", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: Best Unique - Mystical Spellblade (10%) ----",
+        "Type": "Choice",
+        "Weight": 10,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Mystical_Spellblade", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: Best Unique - Mjollnir Mace (10%) ----",
+        "Type": "Choice",
+        "Weight": 10,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "WanMine_Mjollnir_Mace", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: Best Unique - Gaia's Wrath Sword (10%) ----",
+        "Type": "Choice",
+        "Weight": 10,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "WanMine_Gaias_Wrath_Sword", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: Best Unique - Kami Void Spellbook (8%) ----",
+        "Type": "Choice",
+        "Weight": 8,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "MI_Weapon_Spellbook_Void", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: T4 Mask - Klops Orange (8%) ----",
+        "Type": "Choice",
+        "Weight": 8,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "HayHay_Head_Klops_Orange_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: T4 Mask - Cactee (8%) ----",
+        "Type": "Choice",
+        "Weight": 8,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "HayHay_Head_Cactee_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      }
+    ]
+  }
+}

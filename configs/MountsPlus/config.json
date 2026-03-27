@@ -1,0 +1,80 @@
+{
+    "mountEntities": {
+        "Wolf_Black": {
+            "entityType": "Wolf_Black",
+            "rarity": "Common",
+            "displayName": "Black Wolf",
+            "spawnOffset": 1.5,
+            "defaultScale": 1.2,
+            "permission": "mounts.wolf_black",
+            "mountYOffset": 1.2,
+            "storageSize": 9,
+            "invulnerable": false,
+            "baseHealth": 50.0,
+            "respawnCooldownSeconds": 60,
+            "speed": 1.2
+        },
+        "Bear_Polar": {
+            "entityType": "Bear_Polar",
+            "rarity": "Uncommon",
+            "displayName": "Polar Bear",
+            "spawnOffset": 2.5,
+            "defaultScale": 1.1,
+            "permission": "mounts.bear_polar",
+            "mountYOffset": 2.0,
+            "storageSize": 18,
+            "invulnerable": false,
+            "baseHealth": 80.0,
+            "respawnCooldownSeconds": 120,
+            "speed": 1.3
+        },
+        "Rex_Cave": {
+            "entityType": "Rex_Cave",
+            "rarity": "Rare",
+            "displayName": "Cave Rex",
+            "spawnOffset": 3.0,
+            "defaultScale": 1.2,
+            "permission": "mounts.rex_cave",
+            "mountYOffset": 3.5,
+            "storageSize": 36,
+            "invulnerable": false,
+            "baseHealth": 120.0,
+            "respawnCooldownSeconds": 180,
+            "speed": 1.5
+        },
+        "Dragon_Frost": {
+            "entityType": "Dragon_Frost",
+            "rarity": "Legendary",
+            "displayName": "Frost Dragon",
+            "spawnOffset": 4.0,
+            "defaultScale": 1.5,
+            "permission": "mounts.dragon_frost",
+            "mountYOffset": 5.2,
+            "storageSize": 54,
+            "invulnerable": false,
+            "baseHealth": 200.0,
+            "respawnCooldownSeconds": 300,
+            "speed": 1.8
+        },
+        "Tamed_Chocobo": {
+            "entityType": "Tamed_Chocobo",
+            "rarity": "Rare",
+            "displayName": "Chocobo",
+            "spawnOffset": 2.0,
+            "defaultScale": 1.0,
+            "permission": "mounts.chocobo",
+            "mountYOffset": 2.5,
+            "storageSize": 18,
+            "invulnerable": false,
+            "baseHealth": 90.0,
+            "respawnCooldownSeconds": 120,
+            "speed": 1.6
+        }
+    },
+    "usePerMountPermissions": true,
+    "allowTransfer": true,
+    "generateEggItems": true,
+    "despawnDistance": 15.0,
+    "discordWebhookUrl": "",
+    "showLogs": false
+}

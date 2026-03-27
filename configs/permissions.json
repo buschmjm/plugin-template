@@ -1,0 +1,88 @@
+{
+  "users": {
+    "ca461745-ecc3-4954-b985-e738b7b98065": {
+      "groups": [
+        "Adventure"
+      ]
+    },
+    "8a5394d7-73ab-45ad-8a5d-43e9e8ebbaa0": {
+      "groups": [
+        "OP",
+        "Adventure"
+      ]
+    }
+  },
+  "groups": {
+    "Default": [
+      "simpleclaims.claim-gui",
+      "simpleclaims.claim",
+      "simpleclaims.unclaim",
+      "simpleclaims.edit-party",
+      "simpleclaims.create-party",
+      "simpleclaims.create-invite",
+      "simpleclaims.accept-invite",
+      "simpleclaims.party-leave",
+      "simpleclaims.party.claim_chunk_amount.20",
+      "mmorpg.shop",
+      "mmorpg.stats",
+      "mmorpg.class",
+      "mmorpg.abilities",
+      "mmorpg.guild",
+      "mmorpg.quest",
+      "mmorpg.leaderboard",
+      "pets.use",
+      "pets.summon",
+      "pets.manage",
+      "mounts.use",
+      "mounts.summon",
+      "mounts.manage",
+      "mounts.chocobo",
+      "fpets.use",
+      "fpets.summon",
+      "spawnshop.use",
+      "mmorpg.commands",
+      "mmorpg.menu",
+      "mmorpg.allocate",
+      "mmorpg.skill",
+      "mmorpg.profession",
+      "mmorpg.gold",
+      "mmorpg.trade",
+      "mmorpg.goldlog",
+      "mmorpg.online",
+      "mmorpg.claim",
+      "mmorpg.class.select",
+      "mmorpg.class.auto",
+      "mmorpg.class.info"
+    ],
+    "Adventure": [
+      "simpleclaims.claim-gui",
+      "simpleclaims.claim",
+      "simpleclaims.unclaim",
+      "simpleclaims.edit-party",
+      "simpleclaims.create-party",
+      "simpleclaims.create-invite",
+      "simpleclaims.accept-invite",
+      "simpleclaims.party-leave",
+      "simpleclaims.party.claim_chunk_amount.20",
+      "mmorpg.shop",
+      "mmorpg.stats",
+      "mmorpg.class",
+      "mmorpg.abilities",
+      "mmorpg.guild",
+      "mmorpg.quest",
+      "mmorpg.leaderboard",
+      "pets.use",
+      "pets.summon",
+      "pets.manage",
+      "mounts.use",
+      "mounts.summon",
+      "mounts.manage",
+      "mounts.chocobo",
+      "fpets.use",
+      "fpets.summon"
+    ],
+    "OP": [
+      "*"
+    ]
+  }
+}

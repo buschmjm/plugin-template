@@ -1,0 +1,98 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.HayHay_Head_Bear_Mask.name",
+    "Description": "server.items.HayHay_Head_Masks_Description.description"
+  },
+  "Parent": "Armor_Cloth_Wool_Head",
+  "ItemLevel": 20,
+  "Icon": "Icons/ItemsGenerated/HayHay_Head_Bear_Mask.png",
+  "IconProperties": {
+    "Scale": 0.4,
+    "Rotation": [
+      22.5,
+      47.815,
+      22.5
+    ],
+    "Translation": [
+      1,
+      -68
+    ]
+  },
+  "Model": "Items/Armor/Bear_Mask/HayHay_Bear_Mask.blockymodel",
+  "Texture": "Items/Armor/Bear_Mask/HayHay_Bear_Mask_Texture.png",
+  "Armor": {
+    "ArmorSlot": "Head",
+    "BaseDamageResistance": 0,
+    "CosmeticsToHide": [
+      "HeadAccessory",
+      "Haircut",
+      "FacialHair",
+      "HeadAccessory",
+      "FaceAccessory",
+      "Ear",
+      "EarAccessory"
+    ],
+    "DamageResistance": {
+      "Physical": [
+        {
+          "Amount": 0.08,
+          "CalculationType": "Multiplicative"
+        }
+      ],
+      "Projectile": [
+        {
+          "Amount": 0.08,
+          "CalculationType": "Multiplicative"
+        }
+      ]
+    },
+    "DamageClassEnhancement": {
+      "Charged": [
+        {
+          "Amount": 0.03,
+          "CalculationType": "Multiplicative",
+          "Target": "Max"
+        }
+      ]
+    },
+    "StatModifiers": {
+      "Health": [
+        {
+          "CalculationType": "Additive",
+          "Amount": 14
+        }
+      ]
+    },
+    "Regenerating": {
+      "Health": [
+        {
+          "Interval": 1,
+          "Amount": 0.5,
+          "RegenType": "Additive"
+        }
+      ],
+      "Stamina": [
+        {
+          "Interval": 0.2,
+          "Amount": 0.1,
+          "RegenType": "Additive"
+        }
+      ]
+    }
+  },
+  "Tags": {
+    "Type": [
+      "Armor"
+    ],
+    "Family": [
+      "Cloth_Wool"
+    ]
+  },
+  "MaxDurability": 250,
+  "ItemSoundSetId": "ISS_Armor_Cloth",
+  "Light": {
+    "Color": "#465",
+    "Radius": 1
+  },
+  "Quality": "Epic"
+}

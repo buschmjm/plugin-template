@@ -1,0 +1,19 @@
+{
+  "_comment": "Zone 1 - Emerald Grove (Level 1-15) wildlife drops. Wolf and Cat pet eggs from zone-appropriate mobs. Low drop rate (~2%) for Common-tier eggs.",
+  "Container": {
+    "Type": "Multiple",
+    "Containers": [
+      {
+        "$Comment": "---- Common Pet Egg: Forest Wolf (2%) ----",
+        "Type": "Choice",
+        "Weight": 2,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Egg_PetsPlus_Wolf", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "_comment": "Kweebec mob drops across all zones. T3 Kweebec Sapling masks are rare drops (~2% chance, then weighted by color rarity). Brown/Green/Dark Brown are more common, Orange/Pink/Red are rarer.",
+  "Container": {
+    "Type": "Multiple",
+    "Containers": [
+      {
+        "$Comment": "---- T3 Kweebec Mask - Random Color (2%) ----",
+        "Type": "Choice",
+        "Weight": 2,
+        "Containers": [
+          {
+            "Type": "Choice",
+            "Weight": 1,
+            "Containers": [
+              {
+                "Type": "Single",
+                "Weight": 18,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Brown_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 18,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Green_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 18,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Dark_Brown_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 15,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Yellow_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 12,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Orange_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 10,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Pink_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 9,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Red_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

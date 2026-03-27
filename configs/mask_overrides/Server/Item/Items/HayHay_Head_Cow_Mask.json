@@ -1,0 +1,98 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.HayHay_Head_Cow_Mask.name",
+    "Description": "server.items.HayHay_Head_Masks_Description.description"
+  },
+  "Parent": "Armor_Cloth_Wool_Head",
+  "ItemLevel": 10,
+  "Icon": "Icons/ItemsGenerated/HayHay_Head_Cow_Mask.png",
+  "IconProperties": {
+    "Scale": 0.3,
+    "Rotation": [
+      22.5,
+      47.815,
+      22.5
+    ],
+    "Translation": [
+      -6,
+      -58
+    ]
+  },
+  "Model": "Items/Armor/Cow_Mask/HayHay_Cow_Head_Mask.blockymodel",
+  "Texture": "Items/Armor/Cow_Mask/HayHay_Cow_Head_Mask_Texture.png",
+  "Armor": {
+    "ArmorSlot": "Head",
+    "BaseDamageResistance": 0,
+    "CosmeticsToHide": [
+      "HeadAccessory",
+      "Haircut",
+      "FacialHair",
+      "HeadAccessory",
+      "FaceAccessory",
+      "Ear",
+      "EarAccessory"
+    ],
+    "DamageResistance": {
+      "Physical": [
+        {
+          "Amount": 0.05,
+          "CalculationType": "Multiplicative"
+        }
+      ],
+      "Projectile": [
+        {
+          "Amount": 0.05,
+          "CalculationType": "Multiplicative"
+        }
+      ]
+    },
+    "StatModifiers": {
+      "Health": [
+        {
+          "CalculationType": "Additive",
+          "Amount": 8
+        }
+      ]
+    },
+    "Regenerating": {
+      "Health": [
+        {
+          "Interval": 1,
+          "Amount": 0.3,
+          "RegenType": "Additive"
+        }
+      ],
+      "Stamina": [
+        {
+          "Interval": 0.2,
+          "Amount": 0.06,
+          "RegenType": "Additive"
+        }
+      ]
+    },
+    "DamageClassEnhancement": {
+      "Charged": [
+        {
+          "Amount": 0.02,
+          "CalculationType": "Multiplicative",
+          "Target": "Max"
+        }
+      ]
+    }
+  },
+  "Tags": {
+    "Type": [
+      "Armor"
+    ],
+    "Family": [
+      "Cloth_Wool"
+    ]
+  },
+  "MaxDurability": 200,
+  "ItemSoundSetId": "ISS_Armor_Cloth",
+  "Light": {
+    "Color": "#465",
+    "Radius": 1
+  },
+  "Quality": "Rare"
+}

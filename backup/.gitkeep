@@ -1,0 +1,6 @@
+# This directory holds the last known good server backup.
+# Contents are overwritten by update-hytale.sh on each run.
+# Structure:
+#   backup/mods/    — mod jars from the PVC
+#   backup/world/   — world saves, configs, and other server data
+#   backup/backed_up_version.txt — game version at time of backup

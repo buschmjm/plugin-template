@@ -1,0 +1,18 @@
+{
+  "Parent": "Weapon_Sword_Mithril",
+  "TranslationProperties": {
+    "Name": "Heavenly Grace",
+    "Description": "Wreathed in blue fire that never dies."
+  },
+  "MaxStack": 1,
+  "MaxDurability": 1500,
+  "DurabilityLossOnHit": 0.1,
+  "InteractionVars": {
+    "Swing_Left_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Swing_Left_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 16 } } }] },
+    "Swing_Right_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Swing_Right_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 16 } } }] },
+    "Swing_Down_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Swing_Down_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 30 } } }] },
+    "Thrust_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Thrust_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 42 } } }] },
+    "Vortexstrike_Spin_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Signature_Vortexstrike_Spin_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 95 } } }] },
+    "Vortexstrike_Stab_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Signature_Vortexstrike_Stab_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 260 } } }] }
+  }
+}

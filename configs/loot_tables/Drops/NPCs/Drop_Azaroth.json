@@ -1,0 +1,173 @@
+{
+  "_comment": "D01 Boss - Azaroth (Level 55-70). Adds: Legendary pet egg (Skeleton Champion ~8%), unique weapons (~12% each), T4 Undead mask (~10%)",
+  "Container": {
+    "Type": "Multiple",
+    "Containers": [
+      {
+        "$Comment": "---- Guaranteed: D01 Exit Key ----",
+        "Type": "Choice",
+        "Weight": 100,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "DungeonKey_D01_Exit", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- Guaranteed: D02 Portal Key ----",
+        "Type": "Choice",
+        "Weight": 100,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "MJ_PortalKey_D02", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- Guaranteed: Health Potions ----",
+        "Type": "Choice",
+        "Weight": 100,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Potion_Health_Large", "QuantityMin": 1, "QuantityMax": 3 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- Ore Drops ----",
+        "Type": "Choice",
+        "Weight": 50,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Ore_Mithril", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- Ore Adamantite ----",
+        "Type": "Choice",
+        "Weight": 50,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Ore_Adamantite", "QuantityMin": 2, "QuantityMax": 6 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- Crafting Materials ----",
+        "Type": "Choice",
+        "Weight": 50,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Ingredient_Leather_Storm", "QuantityMin": 2, "QuantityMax": 3 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- Voidheart ----",
+        "Type": "Choice",
+        "Weight": 50,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Ingredient_Voidheart", "QuantityMin": 1, "QuantityMax": 3 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- Gems ----",
+        "Type": "Choice",
+        "Weight": 30,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Rock_Gem_Ruby", "QuantityMin": 1, "QuantityMax": 3 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- MJ Original: Azaroth's Longsword (rare drop) ----",
+        "Type": "Choice",
+        "Weight": 10,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Weapon_Longsword_Azaroth", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- MJ Original: Rekindle Embers Spellbook ----",
+        "Type": "Choice",
+        "Weight": 30,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Weapon_Spellbook_Rekindle_Embers", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- MJ Original: Dark Coins ----",
+        "Type": "Choice",
+        "Weight": 30,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Dark_Coin_I", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: Legendary Pet Egg - Skeleton Champion (8%) ----",
+        "Type": "Choice",
+        "Weight": 8,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Egg_PetsPlus_Skeleton", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: Unique Weapon - Frozen Runic Blade (12%) ----",
+        "Type": "Choice",
+        "Weight": 12,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Frozen_Runic_Blade", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: Unique Weapon - Wan's Soulblight Longsword (12%) ----",
+        "Type": "Choice",
+        "Weight": 12,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "WanMine_Soulblight_Longsword", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      },
+      {
+        "$Comment": "---- CUSTOM: T4 Mask - Undead Pig Mask (10%) ----",
+        "Type": "Choice",
+        "Weight": 10,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "HayHay_Head_Undead_Pig_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      }
+    ]
+  }
+}

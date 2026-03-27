@@ -1,0 +1,47 @@
+{
+  "Parent": "Ore_Gold",
+  "BlockType": null,
+  "TranslationProperties": {
+    "Name": "Gold Ore of Nature",
+    "Description": "A chunk of mystical gold ore that channels ARC abilities"
+  },
+  "MaxStack": 1,
+  "Interactions": {
+    "Ability1": {
+      "Interactions": [
+        { "Type": "mmorpg_ability_cast" }
+      ]
+    },
+    "Ability2": {
+      "Interactions": [
+        { "Type": "mmorpg_ability_cast" }
+      ]
+    },
+    "Ability3": {
+      "Interactions": [
+        { "Type": "mmorpg_ability_cast" }
+      ]
+    }
+  },
+  "Utility": {
+    "Compatible": true,
+    "Usable": true,
+    "Interactions": {
+      "Ability1": {
+        "Interactions": [
+          { "Type": "mmorpg_ability_cast" }
+        ]
+      },
+      "Ability2": {
+        "Interactions": [
+          { "Type": "mmorpg_ability_cast" }
+        ]
+      },
+      "Ability3": {
+        "Interactions": [
+          { "Type": "mmorpg_ability_cast" }
+        ]
+      }
+    }
+  }
+}

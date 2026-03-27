@@ -1,0 +1,19 @@
+{
+  "_comment": "Zone 2 - Howling Sands (Level 15-30) reptile drops. Desert Raptor pet egg from raptor-type mobs.",
+  "Container": {
+    "Type": "Multiple",
+    "Containers": [
+      {
+        "$Comment": "---- Uncommon Pet Egg: Desert Raptor (1.5%) ----",
+        "Type": "Choice",
+        "Weight": 2,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Egg_PetsPlus_Raptor", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      }
+    ]
+  }
+}

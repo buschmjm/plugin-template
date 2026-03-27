@@ -1,0 +1,180 @@
+Group {
+    Anchor: (Full: 0);
+    LayoutMode: Center;
+    Background: #000000(0.5);
+
+    Group #Panel {
+        Anchor: (Width: 720, Height: 540);
+        LayoutMode: Top;
+        Padding: (Top: 14, Bottom: 14, Left: 14, Right: 14);
+        Background: #0D1A0D(0.95);
+        OutlineColor: #2E5E2E;
+        OutlineSize: 2;
+
+        Group #TopBar {
+            Anchor: (Height: 36);
+            LayoutMode: Left;
+            TextButton #BtnBack {
+                Anchor: (Width: 70, Height: 30);
+                Text: "Back";
+                Background: #1E3E1E(0.9);
+                OutlineColor: #3A7A3A;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Label #Title {
+                Anchor: (Width: 560, Height: 36);
+                Text: "Mount Shop";
+                Style: (FontSize: 20, HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+        }
+
+        Group { Anchor: (Height: 6); }
+
+        Group #GoldBar {
+            Anchor: (Height: 26);
+            Background: #0A1A0A(0.9);
+            LayoutMode: Left;
+            Padding: (Left: 10);
+            Label #GoldDisplay {
+                Anchor: (Width: 300, Height: 26);
+                Text: "Gold: 0g";
+                Style: (VerticalAlignment: Center);
+            }
+        }
+
+        Group { Anchor: (Height: 8); }
+
+        Group #Body {
+            Anchor: (Height: 400);
+            LayoutMode: Left;
+
+            Group #LeftPanel {
+                Anchor: (Width: 260, Height: 400);
+                LayoutMode: Top;
+
+                Group #MountList {
+                    Anchor: (Height: 400);
+                    LayoutMode: Top;
+
+                    TextButton #Item1 {
+                        Anchor: (Height: 44);
+                        Text: "";
+                        Background: #0E220E(0.8);
+                        OutlineColor: #1E4E1E;
+                        OutlineSize: 1;
+                        Padding: (Left: 8);
+                        Style: (Default: (LabelStyle: (VerticalAlignment: Center)));
+                    }
+                    Group { Anchor: (Height: 4); }
+                    TextButton #Item2 {
+                        Anchor: (Height: 44);
+                        Text: "";
+                        Background: #0E220E(0.8);
+                        OutlineColor: #1E4E1E;
+                        OutlineSize: 1;
+                        Padding: (Left: 8);
+                        Style: (Default: (LabelStyle: (VerticalAlignment: Center)));
+                    }
+                    Group { Anchor: (Height: 4); }
+                    TextButton #Item3 {
+                        Anchor: (Height: 44);
+                        Text: "";
+                        Background: #0E220E(0.8);
+                        OutlineColor: #1E4E1E;
+                        OutlineSize: 1;
+                        Padding: (Left: 8);
+                        Style: (Default: (LabelStyle: (VerticalAlignment: Center)));
+                    }
+                    Group { Anchor: (Height: 4); }
+                    TextButton #Item4 {
+                        Anchor: (Height: 44);
+                        Text: "";
+                        Background: #0E220E(0.8);
+                        OutlineColor: #1E4E1E;
+                        OutlineSize: 1;
+                        Padding: (Left: 8);
+                        Style: (Default: (LabelStyle: (VerticalAlignment: Center)));
+                    }
+                }
+            }
+
+            Group #Divider {
+                Anchor: (Width: 2, Height: 400);
+                Background: #2E5E2E;
+            }
+
+            Group #RightPanel {
+                Anchor: (Width: 420, Height: 400);
+                LayoutMode: Top;
+                Padding: (Left: 16, Right: 8);
+
+                Label #DetailName {
+                    Anchor: (Height: 36);
+                    Text: "Select a Mount";
+                    Style: (FontSize: 18, VerticalAlignment: Center);
+                }
+
+                Group { Anchor: (Height: 6); }
+
+                Label #DetailDesc {
+                    Anchor: (Height: 44);
+                    Text: "";
+                    Style: (FontSize: 11, VerticalAlignment: Center);
+                }
+
+                Group { Anchor: (Height: 10); }
+
+                Group #DetailBox {
+                    Anchor: (Height: 154);
+                    LayoutMode: Top;
+                    Padding: (Top: 8, Bottom: 8, Left: 10, Right: 10);
+                    Background: #0A1A0A(0.9);
+                    OutlineColor: #2E5E2E;
+                    OutlineSize: 1;
+
+                    Label #DetailRarity {
+                        Anchor: (Height: 24);
+                        Text: "";
+                        Style: (FontSize: 12, VerticalAlignment: Center);
+                    }
+                    Label #DetailSpeed {
+                        Anchor: (Height: 24);
+                        Text: "";
+                        Style: (FontSize: 12, VerticalAlignment: Center);
+                    }
+                    Label #DetailStorage {
+                        Anchor: (Height: 24);
+                        Text: "";
+                        Style: (FontSize: 12, VerticalAlignment: Center);
+                    }
+                    Label #DetailPrice {
+                        Anchor: (Height: 24);
+                        Text: "";
+                        Style: (FontSize: 14, VerticalAlignment: Center);
+                    }
+                    Label #DetailCommands {
+                        Anchor: (Height: 24);
+                        Text: "";
+                        Style: (FontSize: 10, VerticalAlignment: Center);
+                    }
+                }
+
+                Group { Anchor: (Height: 16); }
+
+                Group #ActionRow {
+                    Anchor: (Height: 44);
+                    LayoutMode: Left;
+                    TextButton #BtnBuy {
+                        Anchor: (Width: 200, Height: 40);
+                        Text: "Buy Mount Egg";
+                        Background: #1A4A1A(0.9);
+                        OutlineColor: #2A7A2A;
+                        OutlineSize: 2;
+                        Style: (Default: (LabelStyle: (FontSize: 14, HorizontalAlignment: Center, VerticalAlignment: Center)));
+                    }
+                }
+            }
+        }
+    }
+}

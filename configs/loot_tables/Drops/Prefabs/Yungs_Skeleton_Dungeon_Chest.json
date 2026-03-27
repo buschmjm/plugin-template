@@ -1,0 +1,161 @@
+{
+  "_comment": "YUNG's HyDungeons Skeleton Dungeon chest (Level 50-65). Entry-level dungeon chests with mid-tier unique weapons and T3 mask chances.",
+  "Container": {
+    "Type": "Multiple",
+    "Containers": [
+      {
+        "$Comment": "---- Standard Loot: Ore ----",
+        "Type": "Choice",
+        "Weight": 70,
+        "Containers": [
+          {
+            "Type": "Choice",
+            "Weight": 1,
+            "Containers": [
+              {
+                "Type": "Single",
+                "Weight": 40,
+                "Item": { "ItemId": "Ore_Iron", "QuantityMin": 3, "QuantityMax": 8 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 30,
+                "Item": { "ItemId": "Ore_Cobalt", "QuantityMin": 2, "QuantityMax": 5 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 20,
+                "Item": { "ItemId": "Ore_Silver", "QuantityMin": 1, "QuantityMax": 3 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 10,
+                "Item": { "ItemId": "Ore_Mithril", "QuantityMin": 1, "QuantityMax": 2 }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$Comment": "---- Standard Loot: Potions ----",
+        "Type": "Choice",
+        "Weight": 60,
+        "Containers": [
+          {
+            "Type": "Choice",
+            "Weight": 1,
+            "Containers": [
+              {
+                "Type": "Single",
+                "Weight": 50,
+                "Item": { "ItemId": "Potion_Health_Medium", "QuantityMin": 1, "QuantityMax": 3 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 30,
+                "Item": { "ItemId": "Potion_Health_Large", "QuantityMin": 1, "QuantityMax": 2 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 20,
+                "Item": { "ItemId": "Potion_Stamina_Large", "QuantityMin": 1, "QuantityMax": 2 }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$Comment": "---- Unique Weapon (15% total, split among options) ----",
+        "Type": "Choice",
+        "Weight": 15,
+        "Containers": [
+          {
+            "Type": "Choice",
+            "Weight": 1,
+            "Containers": [
+              {
+                "Type": "Single",
+                "Weight": 25,
+                "Item": { "ItemId": "WanMine_Frostburn_Dagger", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 25,
+                "Item": { "ItemId": "WanMine_Heartroot_Dagger", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 25,
+                "Item": { "ItemId": "WanMine_Helioram_Mace", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 25,
+                "Item": { "ItemId": "MI_Weapon_Staff_Fire", "QuantityMin": 1, "QuantityMax": 1 }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$Comment": "---- T3 Kweebec Mask (8% chance) ----",
+        "Type": "Choice",
+        "Weight": 8,
+        "Containers": [
+          {
+            "Type": "Choice",
+            "Weight": 1,
+            "Containers": [
+              {
+                "Type": "Single",
+                "Weight": 15,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Brown_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 15,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Green_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 15,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Dark_Brown_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 15,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Yellow_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 12,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Orange_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 12,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Pink_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              },
+              {
+                "Type": "Single",
+                "Weight": 10,
+                "Item": { "ItemId": "HayHay_Head_Kweebec_Sapling_Red_Mask", "QuantityMin": 1, "QuantityMax": 1 }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$Comment": "---- Skeleton Pet Egg (3%) ----",
+        "Type": "Choice",
+        "Weight": 3,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Egg_PetsPlus_Skeleton", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      }
+    ]
+  }
+}

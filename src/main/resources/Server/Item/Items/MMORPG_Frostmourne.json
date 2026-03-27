@@ -1,0 +1,18 @@
+{
+  "Parent": "Weapon_Sword_Frost",
+  "TranslationProperties": {
+    "Name": "Frostmourne",
+    "Description": "An ancient runeblade radiating frozen death. Drains stamina on hit."
+  },
+  "MaxStack": 1,
+  "MaxDurability": 1200,
+  "DurabilityLossOnHit": 0.1,
+  "InteractionVars": {
+    "Swing_Left_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Swing_Left_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 14 } }, "EntityStatsOnHit": [{ "EntityStatId": "Stamina", "Amount": -15.0 }] }] },
+    "Swing_Right_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Swing_Right_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 14 } }, "EntityStatsOnHit": [{ "EntityStatId": "Stamina", "Amount": -15.0 }] }] },
+    "Swing_Down_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Swing_Down_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 26 } }, "EntityStatsOnHit": [{ "EntityStatId": "Stamina", "Amount": -25.0 }] }] },
+    "Thrust_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Primary_Thrust_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 36 } }, "EntityStatsOnHit": [{ "EntityStatId": "Stamina", "Amount": -35.0 }] }] },
+    "Vortexstrike_Spin_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Signature_Vortexstrike_Spin_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 20 } }, "EntityStatsOnHit": [{ "EntityStatId": "Stamina", "Amount": -20.0 }] }] },
+    "Vortexstrike_Stab_Damage": { "Interactions": [{ "Parent": "Weapon_Sword_Signature_Vortexstrike_Stab_Damage", "DamageCalculator": { "BaseDamage": { "Physical": 50 } }, "EntityStatsOnHit": [{ "EntityStatId": "Stamina", "Amount": -40.0 }] }] }
+  }
+}

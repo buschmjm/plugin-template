@@ -1,0 +1,272 @@
+Group {
+    Anchor: (Full: 0);
+    LayoutMode: Center;
+    Background: #000000(0.5);
+
+    Group #Panel {
+        Anchor: (Width: 640, Height: 620);
+        LayoutMode: Top;
+        Padding: (Top: 16, Bottom: 16, Left: 15, Right: 15);
+        Background: #1A1A2E(0.9);
+        OutlineColor: #4A4A7E;
+        OutlineSize: 2;
+
+        Group #TopBar {
+            Anchor: (Height: 36);
+            LayoutMode: Left;
+            TextButton #BtnBack {
+                Anchor: (Width: 80, Height: 30);
+                Text: "Back";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Label #PageTitle {
+                Anchor: (Width: 510, Height: 36);
+                Text: "Class Selection";
+                Style: (FontSize: 20, HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+        }
+
+        Group { Anchor: (Height: 4); }
+
+        Label #InfoLine1 {
+            Anchor: (Height: 22);
+            Text: "Active Title: Apprentice";
+            Style: (HorizontalAlignment: Center, VerticalAlignment: Center);
+        }
+        Label #InfoLine2 {
+            Anchor: (Height: 20);
+            Text: "";
+            Style: (HorizontalAlignment: Center, VerticalAlignment: Center);
+        }
+
+        Group { Anchor: (Height: 6); }
+
+        Group #RowGroup1 {
+            Anchor: (Height: 44);
+            LayoutMode: Left;
+            Label #RowLabel1 {
+                Anchor: (Width: 510, Height: 38);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 8, Right: 4);
+                Style: (VerticalAlignment: Center);
+            }
+            TextButton #RowBtn1 {
+                Anchor: (Width: 90, Height: 38);
+                Text: "";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+        Group { Anchor: (Height: 3); }
+        Group #RowGroup2 {
+            Anchor: (Height: 44);
+            LayoutMode: Left;
+            Label #RowLabel2 {
+                Anchor: (Width: 510, Height: 38);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 8, Right: 4);
+                Style: (VerticalAlignment: Center);
+            }
+            TextButton #RowBtn2 {
+                Anchor: (Width: 90, Height: 38);
+                Text: "";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+        Group { Anchor: (Height: 3); }
+        Group #RowGroup3 {
+            Anchor: (Height: 44);
+            LayoutMode: Left;
+            Label #RowLabel3 {
+                Anchor: (Width: 510, Height: 38);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 8, Right: 4);
+                Style: (VerticalAlignment: Center);
+            }
+            TextButton #RowBtn3 {
+                Anchor: (Width: 90, Height: 38);
+                Text: "";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+        Group { Anchor: (Height: 3); }
+        Group #RowGroup4 {
+            Anchor: (Height: 44);
+            LayoutMode: Left;
+            Label #RowLabel4 {
+                Anchor: (Width: 510, Height: 38);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 8, Right: 4);
+                Style: (VerticalAlignment: Center);
+            }
+            TextButton #RowBtn4 {
+                Anchor: (Width: 90, Height: 38);
+                Text: "";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+        Group { Anchor: (Height: 3); }
+        Group #RowGroup5 {
+            Anchor: (Height: 44);
+            LayoutMode: Left;
+            Label #RowLabel5 {
+                Anchor: (Width: 510, Height: 38);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 8, Right: 4);
+                Style: (VerticalAlignment: Center);
+            }
+            TextButton #RowBtn5 {
+                Anchor: (Width: 90, Height: 38);
+                Text: "";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+        Group { Anchor: (Height: 3); }
+        Group #RowGroup6 {
+            Anchor: (Height: 44);
+            LayoutMode: Left;
+            Label #RowLabel6 {
+                Anchor: (Width: 510, Height: 38);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 8, Right: 4);
+                Style: (VerticalAlignment: Center);
+            }
+            TextButton #RowBtn6 {
+                Anchor: (Width: 90, Height: 38);
+                Text: "";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+        Group { Anchor: (Height: 3); }
+        Group #RowGroup7 {
+            Anchor: (Height: 44);
+            LayoutMode: Left;
+            Label #RowLabel7 {
+                Anchor: (Width: 510, Height: 38);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 8, Right: 4);
+                Style: (VerticalAlignment: Center);
+            }
+            TextButton #RowBtn7 {
+                Anchor: (Width: 90, Height: 38);
+                Text: "";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group { Anchor: (Height: 6); }
+
+        Group #PassiveSection {
+            Anchor: (Height: 100);
+            LayoutMode: Top;
+            Padding: (Left: 4, Right: 4);
+            Background: #22223A(0.8);
+            OutlineColor: #3A3A5E;
+            OutlineSize: 1;
+
+            Label #PassiveHeader {
+                Anchor: (Height: 22);
+                Text: "";
+                Style: (FontSize: 14, HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+            Label #PassiveLine1 {
+                Anchor: (Height: 20);
+                Text: "";
+                Padding: (Left: 8);
+                Style: (VerticalAlignment: Center);
+            }
+            Label #PassiveLine2 {
+                Anchor: (Height: 20);
+                Text: "";
+                Padding: (Left: 8);
+                Style: (VerticalAlignment: Center);
+            }
+            Label #PassiveLine3 {
+                Anchor: (Height: 20);
+                Text: "";
+                Padding: (Left: 8);
+                Style: (VerticalAlignment: Center);
+            }
+        }
+
+        Group { Anchor: (Height: 6); }
+
+        Group #BottomBar {
+            Anchor: (Height: 38);
+            LayoutMode: Left;
+            TextButton #BtnPrev {
+                Anchor: (Width: 80, Height: 32);
+                Text: "< Prev";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Label #NavLabel {
+                Anchor: (Width: 200, Height: 32);
+                Text: "Page 1 / 3";
+                Style: (HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+            TextButton #BtnNext {
+                Anchor: (Width: 80, Height: 32);
+                Text: "Next >";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            TextButton #BtnAuto {
+                Anchor: (Width: 130, Height: 32);
+                Text: "Auto: ON";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+    }
+}

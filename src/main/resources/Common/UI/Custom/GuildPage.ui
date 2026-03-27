@@ -1,0 +1,240 @@
+Group {
+    Anchor: (Full: 0);
+    LayoutMode: Center;
+    Background: #000000(0.5);
+
+    Group #Panel {
+        Anchor: (Width: 520, Height: 620);
+        LayoutMode: Top;
+        Padding: (Top: 20, Bottom: 20, Left: 15, Right: 15);
+        Background: #1A1A2E(0.9);
+        OutlineColor: #4A4A7E;
+        OutlineSize: 2;
+
+        Group #TopBar {
+            Anchor: (Height: 36);
+            LayoutMode: Left;
+            TextButton #BtnBack {
+                Anchor: (Width: 80, Height: 30);
+                Text: "Back";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Label #Title {
+            Anchor: (Height: 36);
+            Text: "Guild";
+            Style: (FontSize: 24, HorizontalAlignment: Center, VerticalAlignment: Center);
+        }
+
+        Label #GuildInfo {
+            Anchor: (Height: 28);
+            Text: "Not in a guild";
+        }
+
+        Label #GuildLevel {
+            Anchor: (Height: 24);
+            Text: "";
+        }
+
+        Label #GuildBonus {
+            Anchor: (Height: 24);
+            Text: "";
+        }
+
+        Label #MemberHeader {
+            Anchor: (Height: 24);
+            Text: "Members:";
+        }
+
+        Group #MemberList {
+            Anchor: (Height: 200);
+            LayoutMode: Top;
+
+            Label #Member1 {
+                Anchor: (Height: 22);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Member2 {
+                Anchor: (Height: 22);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Member3 {
+                Anchor: (Height: 22);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Member4 {
+                Anchor: (Height: 22);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Member5 {
+                Anchor: (Height: 22);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Member6 {
+                Anchor: (Height: 22);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Member7 {
+                Anchor: (Height: 22);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 3); }
+            Label #Member8 {
+                Anchor: (Height: 22);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+        }
+
+        Label #PersonalStats {
+            Anchor: (Height: 24);
+            Text: "";
+        }
+
+        Group #ButtonRow {
+            Anchor: (Height: 46);
+            LayoutMode: Left;
+
+            TextButton #BtnLeave {
+                Anchor: (Width: 140, Height: 36);
+                Text: "Leave Guild";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+
+            Group { Anchor: (Width: 10); Label { Anchor: (Height: 0); Text: ""; } }
+
+            TextButton #BtnCreate {
+                Anchor: (Width: 200, Height: 36);
+                Text: "Create Guild (500g)";
+                Background: #2A5A2A(0.9);
+                OutlineColor: #4A7A4A;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Label #ConfirmLabel {
+            Anchor: (Height: 24);
+            Text: "";
+        }
+
+        Group #ConfirmRow {
+            Anchor: (Height: 40);
+            LayoutMode: Left;
+
+            TextButton #BtnConfirmYes {
+                Anchor: (Width: 120, Height: 32);
+                Text: "Yes, Create";
+                Background: #2A5A2A(0.9);
+                OutlineColor: #4A7A4A;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+
+            Group { Anchor: (Width: 10); Label { Anchor: (Height: 0); Text: ""; } }
+
+            TextButton #BtnConfirmNo {
+                Anchor: (Width: 120, Height: 32);
+                Text: "Cancel";
+                Background: #5A2A2A(0.9);
+                OutlineColor: #7A4A4A;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group { Anchor: (Height: 4); Label { Anchor: (Height: 0); Text: ""; } }
+
+        Label #InviteHeader {
+            Anchor: (Height: 24);
+            Text: "";
+        }
+
+        Group #InviteList {
+            Anchor: (Height: 120);
+            LayoutMode: Top;
+
+            Group #InviteRow1 {
+                Anchor: (Height: 28);
+                LayoutMode: Left;
+                Label #InviteName1 { Anchor: (Width: 340, Height: 26); Text: ""; Padding: (Left: 10); Style: (VerticalAlignment: Center); }
+                TextButton #BtnInvite1 { Anchor: (Width: 120, Height: 26); Text: "Invite"; Background: #2A5A2A(0.9); OutlineColor: #4A7A4A; OutlineSize: 1; Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center))); }
+            }
+            Group #InviteRow2 {
+                Anchor: (Height: 28);
+                LayoutMode: Left;
+                Label #InviteName2 { Anchor: (Width: 340, Height: 26); Text: ""; Padding: (Left: 10); Style: (VerticalAlignment: Center); }
+                TextButton #BtnInvite2 { Anchor: (Width: 120, Height: 26); Text: "Invite"; Background: #2A5A2A(0.9); OutlineColor: #4A7A4A; OutlineSize: 1; Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center))); }
+            }
+            Group #InviteRow3 {
+                Anchor: (Height: 28);
+                LayoutMode: Left;
+                Label #InviteName3 { Anchor: (Width: 340, Height: 26); Text: ""; Padding: (Left: 10); Style: (VerticalAlignment: Center); }
+                TextButton #BtnInvite3 { Anchor: (Width: 120, Height: 26); Text: "Invite"; Background: #2A5A2A(0.9); OutlineColor: #4A7A4A; OutlineSize: 1; Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center))); }
+            }
+            Group #InviteRow4 {
+                Anchor: (Height: 28);
+                LayoutMode: Left;
+                Label #InviteName4 { Anchor: (Width: 340, Height: 26); Text: ""; Padding: (Left: 10); Style: (VerticalAlignment: Center); }
+                TextButton #BtnInvite4 { Anchor: (Width: 120, Height: 26); Text: "Invite"; Background: #2A5A2A(0.9); OutlineColor: #4A7A4A; OutlineSize: 1; Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center))); }
+            }
+        }
+
+        Label #InviteStatus {
+            Anchor: (Height: 22);
+            Text: "";
+        }
+    }
+}

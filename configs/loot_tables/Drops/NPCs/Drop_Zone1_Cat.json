@@ -1,0 +1,19 @@
+{
+  "_comment": "Zone 1 - Emerald Grove (Level 1-15) cat drops. Wild Cat pet egg from cat mobs.",
+  "Container": {
+    "Type": "Multiple",
+    "Containers": [
+      {
+        "$Comment": "---- Common Pet Egg: Wild Cat (2%) ----",
+        "Type": "Choice",
+        "Weight": 2,
+        "Containers": [
+          {
+            "Type": "Single",
+            "Item": { "ItemId": "Egg_PetsPlus_Cat", "QuantityMin": 1, "QuantityMax": 1 }
+          }
+        ]
+      }
+    ]
+  }
+}

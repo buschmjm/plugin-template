@@ -1,0 +1,11 @@
+{
+  "_comment": "MMORPG Override — replaces PJ Forgotten Creatures default. Controlled by master_spawns.json",
+  "Environments": ["Env_Zone1_Forests", "Env_Zone1_Autumn", "Env_Zone1_Azure"],
+  "NPCs": [
+    { "Id": "Bear_Grizzly",       "Weight": 5,  "SpawnBlockSet": "Soil" },
+    { "Id": "Spider",             "Weight": 5,  "SpawnBlockSet": "Soil" },
+    { "Id": "BramblekinShaman",   "Weight": 3,  "SpawnBlockSet": "Soil" },
+    { "Id": "Mushee",             "Weight": 2,  "SpawnBlockSet": "Soil" }
+  ],
+  "DayTimeRange": [6, 18]
+}

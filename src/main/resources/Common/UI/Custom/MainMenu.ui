@@ -1,0 +1,183 @@
+Group {
+    Anchor: (Full: 0);
+    LayoutMode: Center;
+    Background: #000000(0.5);
+
+    Group #MenuPanel {
+        Anchor: (Width: 780, Height: 620);
+        LayoutMode: Top;
+        Padding: (Full: 15);
+        Background: #1A1A2E(0.9);
+        OutlineColor: #4A4A7E;
+        OutlineSize: 2;
+
+        Label #MenuTitle {
+            Anchor: (Height: 45);
+            Text: "MMORPG Menu";
+            Style: (FontSize: 24, HorizontalAlignment: Center, VerticalAlignment: Center);
+        }
+
+        Group { Anchor: (Height: 10); }
+
+        Group #Row1 {
+            Anchor: (Height: 55);
+            LayoutMode: Left;
+            TextButton #BtnStats {
+                Anchor: (Width: 230, Height: 50);
+                Text: "Stats & Allocate";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Group { Anchor: (Width: 15); }
+            TextButton #BtnShop {
+                Anchor: (Width: 230, Height: 50);
+                Text: "Weapon & Armor Shop";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Group { Anchor: (Width: 15); }
+            TextButton #BtnMounts {
+                Anchor: (Width: 230, Height: 50);
+                Text: "Mounts";
+                Background: #2A4A3E(0.9);
+                OutlineColor: #4A6A5E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group { Anchor: (Height: 8); }
+
+        Group #Row2 {
+            Anchor: (Height: 55);
+            LayoutMode: Left;
+            TextButton #BtnClass {
+                Anchor: (Width: 230, Height: 50);
+                Text: "Class & Titles";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Group { Anchor: (Width: 15); }
+            TextButton #BtnAbilities {
+                Anchor: (Width: 230, Height: 50);
+                Text: "Abilities";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Group { Anchor: (Width: 15); }
+            TextButton #BtnPets {
+                Anchor: (Width: 230, Height: 50);
+                Text: "Pets";
+                Background: #2A4A3E(0.9);
+                OutlineColor: #4A6A5E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group { Anchor: (Height: 8); }
+
+        Group #Row3 {
+            Anchor: (Height: 55);
+            LayoutMode: Left;
+            TextButton #BtnQuests {
+                Anchor: (Width: 230, Height: 50);
+                Text: "Quests";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Group { Anchor: (Width: 15); }
+            TextButton #BtnSkills {
+                Anchor: (Width: 230, Height: 50);
+                Text: "Skills & Professions";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Group { Anchor: (Width: 15); }
+            TextButton #BtnSupplies {
+                Anchor: (Width: 230, Height: 50);
+                Text: "Supply Shop";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group { Anchor: (Height: 8); }
+
+        Group #Row4 {
+            Anchor: (Height: 55);
+            LayoutMode: Left;
+            TextButton #BtnGuild {
+                Anchor: (Width: 230, Height: 50);
+                Text: "Guild";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Group { Anchor: (Width: 15); }
+            TextButton #BtnClaims {
+                Anchor: (Width: 230, Height: 50);
+                Text: "Land Claims";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Group { Anchor: (Width: 15); }
+            TextButton #BtnLeaderboard {
+                Anchor: (Width: 230, Height: 50);
+                Text: "Leaderboard";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group { Anchor: (Height: 8); }
+
+        Group #Row5 {
+            Anchor: (Height: 55);
+            LayoutMode: Left;
+            TextButton #BtnGoldLog {
+                Anchor: (Width: 230, Height: 50);
+                Text: "Gold Log";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group { Anchor: (Height: 15); }
+
+        Group #InfoRow {
+            Anchor: (Height: 30);
+            LayoutMode: Left;
+            Label #PlayerInfo { Anchor: (Width: 750); Text: ""; }
+        }
+
+        Group { Anchor: (Height: 10); }
+
+        Label #Footer {
+            Anchor: (Height: 25);
+            Text: "Press ESC to close";
+            Style: (HorizontalAlignment: Center, VerticalAlignment: Center);
+        }
+    }
+}

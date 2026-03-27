@@ -1,0 +1,9 @@
+{
+  "_comment": "MMORPG Override — Zone 3 night spawns (Shadow Knight)",
+  "Environments": ["Env_Zone3_Glacial", "Env_Zone3_Tundra"],
+  "NPCs": [
+    { "Id": "ShadowKnight", "Weight": 2, "SpawnBlockSet": "Soil" }
+  ],
+  "DayTimeRange": [19, 5],
+  "LightRanges": { "Light": [0, 10] }
+}

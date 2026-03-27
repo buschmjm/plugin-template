@@ -1,0 +1,284 @@
+Group {
+    Anchor: (Full: 0);
+    LayoutMode: Center;
+    Background: #000000(0.5);
+
+    Group #Panel {
+        Anchor: (Width: 560, Height: 770);
+        LayoutMode: Top;
+        Padding: (Top: 20, Bottom: 20, Left: 15, Right: 15);
+        Background: #1A1A2E(0.9);
+        OutlineColor: #4A4A7E;
+        OutlineSize: 2;
+
+        Group #TopBar {
+            Anchor: (Height: 36);
+            LayoutMode: Left;
+            TextButton #BtnBack {
+                Anchor: (Width: 80, Height: 30);
+                Text: "Back";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Label #Title {
+            Anchor: (Height: 36);
+            Text: "Land Claims";
+            Style: (FontSize: 24, HorizontalAlignment: Center, VerticalAlignment: Center);
+        }
+
+        Label #ClaimCount {
+            Anchor: (Height: 24);
+            Text: "Claims: 0 / 0";
+            Padding: (Left: 10);
+        }
+
+        Group { Anchor: (Height: 4); }
+
+        Group #ColorRow {
+            Anchor: (Height: 34);
+            LayoutMode: Left;
+            Label {
+                Anchor: (Width: 80);
+                Text: "Color:";
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            TextButton #BtnColorPrev {
+                Anchor: (Width: 36, Height: 28);
+                Text: "<";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+            Label #ColorName {
+                Anchor: (Width: 100, Height: 28);
+                Text: "blue";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Style: (HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+            TextButton #BtnColorNext {
+                Anchor: (Width: 36, Height: 28);
+                Text: ">";
+                Background: #3A3A5E(0.9);
+                OutlineColor: #5A5A8E;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group { Anchor: (Height: 6); }
+
+        Label #PermHeader {
+            Anchor: (Height: 28);
+            Text: "Visitor Permissions";
+            Padding: (Left: 10);
+            Style: (VerticalAlignment: Center);
+        }
+
+        Group #FlagBreak {
+            Anchor: (Height: 30);
+            LayoutMode: Left;
+            Label {
+                Anchor: (Width: 200);
+                Text: "Break Blocks";
+                Padding: (Left: 20);
+                Style: (VerticalAlignment: Center);
+            }
+            TextButton #BtnBreak {
+                Anchor: (Width: 80, Height: 26);
+                Text: "OFF";
+                Background: #5A2A2A(0.9);
+                OutlineColor: #7A4A4A;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group #FlagPlace {
+            Anchor: (Height: 30);
+            LayoutMode: Left;
+            Label {
+                Anchor: (Width: 200);
+                Text: "Place Blocks";
+                Padding: (Left: 20);
+                Style: (VerticalAlignment: Center);
+            }
+            TextButton #BtnPlace {
+                Anchor: (Width: 80, Height: 26);
+                Text: "OFF";
+                Background: #5A2A2A(0.9);
+                OutlineColor: #7A4A4A;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group #FlagDoors {
+            Anchor: (Height: 30);
+            LayoutMode: Left;
+            Label {
+                Anchor: (Width: 200);
+                Text: "Open Doors";
+                Padding: (Left: 20);
+                Style: (VerticalAlignment: Center);
+            }
+            TextButton #BtnDoors {
+                Anchor: (Width: 80, Height: 26);
+                Text: "OFF";
+                Background: #5A2A2A(0.9);
+                OutlineColor: #7A4A4A;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group #FlagContainers {
+            Anchor: (Height: 30);
+            LayoutMode: Left;
+            Label {
+                Anchor: (Width: 200);
+                Text: "Open Containers";
+                Padding: (Left: 20);
+                Style: (VerticalAlignment: Center);
+            }
+            TextButton #BtnContainers {
+                Anchor: (Width: 80, Height: 26);
+                Text: "OFF";
+                Background: #5A2A2A(0.9);
+                OutlineColor: #7A4A4A;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group #FlagPvp {
+            Anchor: (Height: 30);
+            LayoutMode: Left;
+            Label {
+                Anchor: (Width: 200);
+                Text: "PvP Combat";
+                Padding: (Left: 20);
+                Style: (VerticalAlignment: Center);
+            }
+            TextButton #BtnPvp {
+                Anchor: (Width: 80, Height: 26);
+                Text: "OFF";
+                Background: #5A2A2A(0.9);
+                OutlineColor: #7A4A4A;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group #FlagMobs {
+            Anchor: (Height: 30);
+            LayoutMode: Left;
+            Label {
+                Anchor: (Width: 200);
+                Text: "Mob Block Damage";
+                Padding: (Left: 20);
+                Style: (VerticalAlignment: Center);
+            }
+            TextButton #BtnMobs {
+                Anchor: (Width: 80, Height: 26);
+                Text: "OFF";
+                Background: #5A2A2A(0.9);
+                OutlineColor: #7A4A4A;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Group { Anchor: (Height: 6); }
+
+        Label #ChunkHeader {
+            Anchor: (Height: 28);
+            Text: "Claimed Chunks";
+            Padding: (Left: 10);
+            Style: (VerticalAlignment: Center);
+        }
+
+        Group #ClaimList {
+            Anchor: (Height: 130);
+            LayoutMode: Top;
+
+            Label #Claim1 {
+                Anchor: (Height: 22);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 2); }
+            Label #Claim2 {
+                Anchor: (Height: 22);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 2); }
+            Label #Claim3 {
+                Anchor: (Height: 22);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 2); }
+            Label #Claim4 {
+                Anchor: (Height: 22);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+            Group { Anchor: (Height: 2); }
+            Label #Claim5 {
+                Anchor: (Height: 22);
+                Text: "";
+                Background: #2A2A4E(0.7);
+                OutlineColor: #3A3A5E;
+                OutlineSize: 1;
+                Padding: (Left: 10);
+                Style: (VerticalAlignment: Center);
+            }
+        }
+
+        Group { Anchor: (Height: 8); Label { Anchor: (Height: 0); Text: ""; } }
+
+        Group #ClaimButtonRow {
+            Anchor: (Height: 40);
+            LayoutMode: Left;
+
+            TextButton #BtnClaimChunk {
+                Anchor: (Width: 200, Height: 34);
+                Text: "Claim Current Chunk";
+                Background: #2A5A2A(0.9);
+                OutlineColor: #4A7A4A;
+                OutlineSize: 1;
+                Style: (Default: (LabelStyle: (HorizontalAlignment: Center, VerticalAlignment: Center)));
+            }
+        }
+
+        Label #ClaimStatus {
+            Anchor: (Height: 22);
+            Text: "";
+        }
+    }
+}
