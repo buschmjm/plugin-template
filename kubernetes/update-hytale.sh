@@ -297,7 +297,7 @@ for i in $(seq 1 "$TEST_BOOT_WAIT"); do
         -o jsonpath='{.status.phase}' 2>/dev/null || echo "Unknown")
     case "$PHASE" in
         Running)  [[ $i -ge 15 ]] && { HEALTHY=true; break; } ;;
-        Failed|Unknown) break ;;
+        Failed|Unknown|Succeeded) break ;;
     esac
     sleep 1
 done
@@ -310,6 +310,13 @@ echo "────────────────────────�
 RESTARTS=$(k3s kubectl get pod "$TEST_POD_NAME" -n "$NAMESPACE" \
     -o jsonpath='{.status.containerStatuses[0].restartCount}' 2>/dev/null || echo "0")
 [[ "$RESTARTS" -gt 0 ]] && { warn "Test pod restarted $RESTARTS time(s) — treating as unhealthy"; HEALTHY=false; }
+
+# Scan logs for known fatal server errors (catches graceful shutdowns due to plugin failures)
+if k3s kubectl logs "$TEST_POD_NAME" -n "$NAMESPACE" 2>/dev/null \
+        | grep -qE "Shutdown triggered|Failed to setup the following plugins|NoClassDefFoundError|ClassNotFoundException"; then
+    warn "Server logs indicate a fatal startup error — treating as unhealthy"
+    HEALTHY=false
+fi
 
 FINAL_PHASE=$(k3s kubectl get pod "$TEST_POD_NAME" -n "$NAMESPACE" \
     -o jsonpath='{.status.phase}' 2>/dev/null || echo "Unknown")
