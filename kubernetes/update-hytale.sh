@@ -37,6 +37,8 @@ REGISTRY_IMAGE="docker.io/everhytale/hytale-server:latest"
 BUILD_DIR="/opt/hytale-builder"
 DOWNLOADER_DIR="$BUILD_DIR/hytale-downloader"
 DOWNLOADER="$DOWNLOADER_DIR/hytale-downloader-linux-amd64"
+# Credentials are managed by the downloader itself via its own OAuth flow.
+# Run 'sudo kubernetes/hytale-auth.sh' to authenticate (prompts once in browser).
 CREDENTIALS_FILE="$BUILD_DIR/.hytale-downloader-credentials.json"
 GAME_FILES_DIR="$BUILD_DIR/game-files"
 LOCAL_IMAGE_BASE="hytale-server"
@@ -150,12 +152,17 @@ if [[ "$BUILD_MODE" == true ]]; then
         info "Hytale downloader already present"
     fi
 
-    # Check credentials
+    # Check credentials — created by the downloader's own auth flow (hytale-auth.sh)
     [[ -f "$CREDENTIALS_FILE" ]] || fail "Hytale credentials not found: $CREDENTIALS_FILE\n  Authenticate first: sudo $KUBERNETES_DIR/hytale-auth.sh"
 
-    # Get latest version from Hytale
-    HYTALE_VERSION=$("$DOWNLOADER" -print-version 2>/dev/null) \
-        || fail "Could not query latest Hytale version (credentials may be expired — re-run hytale-auth.sh)"
+    # Get latest version using downloader's own credentials
+    HYTALE_VERSION=$(
+        "$DOWNLOADER" \
+            -credentials-path "$CREDENTIALS_FILE" \
+            -print-version \
+            -skip-update-check \
+            2>&1
+    ) || fail "Could not query latest Hytale version: $HYTALE_VERSION\n  Try re-authenticating: sudo $KUBERNETES_DIR/hytale-auth.sh"
     info "Latest Hytale version: $HYTALE_VERSION"
 
     # Skip download if game files are already current
@@ -166,12 +173,11 @@ if [[ "$BUILD_MODE" == true ]]; then
         info "Game files already at $HYTALE_VERSION — skipping download"
     else
         info "Downloading game files for $HYTALE_VERSION ..."
-        cd "$DOWNLOADER_DIR"
-        cp "$CREDENTIALS_FILE" .hytale-downloader-credentials.json
-        ./hytale-downloader-linux-amd64 -download-path "$BUILD_DIR/game.zip" \
-            || { rm -f .hytale-downloader-credentials.json; fail "Hytale game download failed"; }
-        rm -f .hytale-downloader-credentials.json
-        cd "$BUILD_DIR"
+        "$DOWNLOADER" \
+            -credentials-path "$CREDENTIALS_FILE" \
+            -download-path "$BUILD_DIR/game.zip" \
+            -skip-update-check \
+            || fail "Hytale game download failed"
         rm -rf "$GAME_FILES_DIR"
         mkdir -p "$GAME_FILES_DIR"
         unzip -q game.zip -d "$GAME_FILES_DIR"
@@ -371,8 +377,12 @@ fi
 if [[ "$IMAGE_UPDATED" == true ]]; then
     log "Step 5d: Updating deployment image"
     k3s kubectl set image "deployment/$DEPLOYMENT_NAME" "$CONTAINER_NAME=$NEW_IMAGE" -n "$NAMESPACE"
-    # Ensure pull policy is Always for Hub images so future updates work
-    if [[ "$BUILD_MODE" != true ]]; then
+    # Ensure correct pull policy: Never for local images, Always for Hub images
+    if [[ "$BUILD_MODE" == true ]]; then
+        k3s kubectl patch deployment "$DEPLOYMENT_NAME" -n "$NAMESPACE" \
+            --type=json \
+            -p='[{"op":"replace","path":"/spec/template/spec/containers/0/imagePullPolicy","value":"Never"}]'
+    else
         k3s kubectl patch deployment "$DEPLOYMENT_NAME" -n "$NAMESPACE" \
             --type=json \
             -p='[{"op":"replace","path":"/spec/template/spec/containers/0/imagePullPolicy","value":"Always"}]'

@@ -1,7 +1,58 @@
 #!/bin/bash
 # ═══════════════════════════════════════════════════════════════════════════════
-# hytale-auth.sh — Authenticate with Hytale and save credentials
+# hytale-auth.sh — Authenticate the Hytale downloader
 # ═══════════════════════════════════════════════════════════════════════════════
+#
+# Runs the official Hytale downloader's built-in OAuth2 device code flow and
+# saves credentials to /opt/hytale-builder/.hytale-downloader-credentials.json
+#
+# Usage:
+#   sudo /home/dad/hytale-mmorpg-mod/kubernetes/hytale-auth.sh
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+set -euo pipefail
+
+BUILD_DIR="/opt/hytale-builder"
+DOWNLOADER_DIR="$BUILD_DIR/hytale-downloader"
+DOWNLOADER="$DOWNLOADER_DIR/hytale-downloader-linux-amd64"
+CREDENTIALS_FILE="$BUILD_DIR/.hytale-downloader-credentials.json"
+
+[[ $EUID -eq 0 ]] || { echo "Run with sudo"; exit 1; }
+
+mkdir -p "$BUILD_DIR"
+
+# Download the downloader if not present
+if [[ ! -x "$DOWNLOADER" ]]; then
+    echo "Downloading Hytale downloader..."
+    mkdir -p "$DOWNLOADER_DIR"
+    curl -fsSL "https://downloader.hytale.com/hytale-downloader.zip" \
+        -o "$DOWNLOADER_DIR/hytale-downloader.zip"
+    unzip -q "$DOWNLOADER_DIR/hytale-downloader.zip" -d "$DOWNLOADER_DIR"
+    rm "$DOWNLOADER_DIR/hytale-downloader.zip"
+    chmod +x "$DOWNLOADER"
+fi
+
+echo ""
+echo "The Hytale downloader will now prompt you for browser authentication."
+echo "Open the URL shown, enter the code, then come back here."
+echo ""
+
+# Let the downloader handle its own auth flow; it saves to CREDENTIALS_FILE
+"$DOWNLOADER" \
+    -credentials-path "$CREDENTIALS_FILE" \
+    -print-version \
+    -skip-update-check
+
+chmod 600 "$CREDENTIALS_FILE" 2>/dev/null || true
+
+echo ""
+echo "Authentication complete. Credentials saved to: $CREDENTIALS_FILE"
+echo ""
+echo "You can now run:"
+echo "  sudo /home/dad/hytale-mmorpg-mod/kubernetes/update-hytale.sh --build"
+echo ""
+
 #
 # Uses OAuth2 Device Code Flow (RFC 8628) to authenticate your Hytale account.
 # Saves credentials to /opt/hytale-builder/.hytale-downloader-credentials.json
