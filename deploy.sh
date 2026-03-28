@@ -36,6 +36,10 @@ build() {
     cd "$PROJECT_DIR"
     ./gradlew shadowJar --quiet
     echo "✓ Build successful: build/libs/$JAR_NAME"
+
+    # Keep mods/ in sync — update-hytale.sh deploys from mods/*.jar to the server
+    cp "$PROJECT_DIR/build/libs/$JAR_NAME" "$PROJECT_DIR/mods/$JAR_NAME"
+    echo "✓ Synced to mods/$JAR_NAME (picked up by server deploy pipeline)"
 }
 
 stage() {

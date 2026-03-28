@@ -66,9 +66,13 @@ public class ClaimMarkerProvider implements WorldMapManager.MarkerProvider {
         WorldMapManager wmm = world.getWorldMapManager();
 
         String viewerUuid = "";
-        PlayerRef playerRef = player.getPlayerRef();
-        if (playerRef != null) {
-            viewerUuid = playerRef.getUuid().toString();
+        var playerEntityRef = player.getReference();
+        if (playerEntityRef != null && playerEntityRef.isValid()) {
+            PlayerRef playerRef = playerEntityRef.getStore()
+                    .getComponent(playerEntityRef, PlayerRef.getComponentType());
+            if (playerRef != null) {
+                viewerUuid = playerRef.getUuid().toString();
+            }
         }
 
         Set<String> cleared = playerCleared.computeIfAbsent(viewerUuid,

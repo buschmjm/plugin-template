@@ -264,17 +264,18 @@ public class StatsPlugin extends JavaPlugin {
 
                         // Re-send previously explored chunk images so the map persists
                         var wmm = world.getWorldMapManager();
-                        var conn = playerEntity.getPlayerConnection();
+                        var mapPR = store.getComponent(ref, PlayerRef.getComponentType());
+                        var mapPacketHandler = mapPR != null ? mapPR.getPacketHandler() : null;
                         for (long packed : skillData.getExploredChunks()) {
                             int cx = PlayerSkillData.unpackChunkX(packed);
                             int cz = PlayerSkillData.unpackChunkZ(packed);
                             wmm.getImageAsync(cx, cz).thenAccept(img -> {
-                                if (img != null && conn != null) {
+                                if (img != null && mapPacketHandler != null) {
                                     var chunk = new com.hypixel.hytale.protocol.packets.worldmap.MapChunk(cx, cz, img);
                                     var pkt = new com.hypixel.hytale.protocol.packets.worldmap.UpdateWorldMap(
                                             new com.hypixel.hytale.protocol.packets.worldmap.MapChunk[]{chunk},
                                             null, null);
-                                    conn.write(pkt);
+                                    mapPacketHandler.write(pkt);
                                 }
                             });
                         }

@@ -373,18 +373,6 @@ k3s kubectl wait --for=delete pod -l "app.kubernetes.io/name=hytale" -n "$NAMESP
 sleep 3
 info "Production pod terminated"
 
-# In --build mode (version upgrade), clear server-generated data from the PVC.
-# The old server wrote NPC/entity/world data in a format the new version can't read.
-# Mods and configs are preserved; everything else gets wiped so the new server
-# starts clean. World data was already backed up in Step 1.
-if [[ "$BUILD_MODE" == true ]]; then
-    log "Step 5a: Clearing old server data from PVC (version upgrade)"
-    find "$PVC_PATH" -mindepth 1 -maxdepth 1 \
-        ! -name "mods" ! -name "configs" \
-        -exec rm -rf {} \;
-    info "Old server data cleared (mods and configs preserved, world backed up in Step 1)"
-fi
-
 # Sync mods
 log "Step 5b: Syncing mods to PVC"
 mkdir -p "$PVC_MODS"
