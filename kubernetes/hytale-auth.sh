@@ -38,6 +38,10 @@ echo "The Hytale downloader will now prompt you for browser authentication."
 echo "Open the URL shown, enter the code, then come back here."
 echo ""
 
+# Remove stale credentials so the downloader triggers a fresh login instead of
+# trying (and failing with 403) to use expired tokens
+rm -f "$CREDENTIALS_FILE"
+
 # Let the downloader handle its own auth flow; it saves to CREDENTIALS_FILE
 "$DOWNLOADER" \
     -credentials-path "$CREDENTIALS_FILE" \
@@ -53,8 +57,7 @@ echo "You can now run:"
 echo "  sudo /home/dad/hytale-mmorpg-mod/kubernetes/update-hytale.sh --build"
 echo ""
 
-#
-# Uses OAuth2 Device Code Flow (RFC 8628) to authenticate your Hytale account.
+exit 0
 # Saves credentials to /opt/hytale-builder/.hytale-downloader-credentials.json
 # which is used by: update-hytale.sh --build
 #

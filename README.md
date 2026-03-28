@@ -88,7 +88,7 @@ Restores mods, world data, and Kubernetes deployment from last backup.
 | Cats | Tameable cat companions with multiple breeds | CurseForge |
 | Craftable Chalk Variants | Adds all chalk variants to the Builder's Workbench | CurseForge |
 | Eftann's Mythic Weapons | High quality new weapons | CurseForge |
-| Hidden's Harvest Delights | Food mod with 80+ recipes, new crops, and fruit trees | CurseForge |
+| ~~Hidden's Harvest Delights~~ | ~~Food mod with 80+ recipes, new crops, and fruit trees~~ | ~~CurseForge~~ — **Removed**: waiting for mod update for compatibility |
 | Kami's Magical Items | Magical weapons, staffs, wands, runes, and spellbooks | CurseForge |
 | Longbow Collection | Longbows with headshot mechanics and visual effects | CurseForge |
 | Major Dungeons | Custom dungeons, enemies, and items | CurseForge |
@@ -115,9 +115,9 @@ Restores mods, world data, and Kubernetes deployment from last backup.
 | Mod | Description | Source |
 |-----|-------------|--------|
 | HayHay's Animal Head Plushies | 135+ craftable animal head plushies | CurseForge |
-| Salmakia Kitchen Furniture | Kitchen furniture, stoves, and decor | CurseForge |
-| Salmakia Living Room Furniture | Sofas, fireplaces, curtains, and decor | CurseForge |
-| Violet's Furnishings | Expanded furniture and decor | CurseForge |
+| ~~Salmakia Kitchen Furniture~~ | ~~Kitchen furniture, stoves, and decor~~ | ~~CurseForge~~ — **Removed**: waiting for mod update for compatibility |
+| ~~Salmakia Living Room Furniture~~ | ~~Sofas, fireplaces, curtains, and decor~~ | ~~CurseForge~~ — **Removed**: waiting for mod update for compatibility |
+| ~~Violet's Furnishings~~ | ~~Expanded furniture and decor~~ | ~~CurseForge~~ — **Removed**: waiting for mod update for compatibility |
 | Violet's Music Players | Music player items | CurseForge |
 | Violet's Plushies | Plushie collectibles with custom sounds | CurseForge |
 

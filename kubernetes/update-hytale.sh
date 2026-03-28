@@ -58,7 +58,7 @@ PVC_CONFIGS="$PVC_PATH/configs"
 TEST_STAGING="/tmp/hytale-test-mods"
 
 # Timing
-TEST_BOOT_WAIT=45
+TEST_BOOT_WAIT=90
 ROLLOUT_TIMEOUT=120
 
 # Mode
@@ -196,6 +196,12 @@ if [[ "$BUILD_MODE" == true ]]; then
     cp "$GAME_FILES_DIR/Assets.zip" "$BUILD_CONTEXT/Assets.zip"
     cp "$KUBERNETES_DIR/Dockerfile" "$BUILD_CONTEXT/Dockerfile"
 
+    # Remove Hytale's broken dev/test NPC configs — they ship with throw speed
+    # values that fail validation and crash the server on 2026.03.26+
+    rm -rf "$BUILD_CONTEXT/Server/NPC/Roles/_Core/Tests" \
+           "$BUILD_CONTEXT/Server/NPC/Roles/_Core/Tests_Development"
+    info "Removed broken test NPC configs from build context"
+
     NEW_IMAGE="${LOCAL_IMAGE_BASE}:${HYTALE_VERSION}"
     $DOCKER_CMD build \
         -t "${LOCAL_IMAGE_BASE}:latest" \
@@ -295,32 +301,50 @@ spec:
       type: Directory
 EOF
 
-info "Test pod created, waiting to stabilize..."
+info "Test pod created, waiting ${TEST_BOOT_WAIT}s for it to stabilize or crash..."
 
 HEALTHY=false
 for i in $(seq 1 "$TEST_BOOT_WAIT"); do
     PHASE=$(k3s kubectl get pod "$TEST_POD_NAME" -n "$NAMESPACE" \
         -o jsonpath='{.status.phase}' 2>/dev/null || echo "Unknown")
     case "$PHASE" in
-        Running)  [[ $i -ge 15 ]] && { HEALTHY=true; break; } ;;
+        Running)  : ;;  # still alive — keep waiting the full window
         Failed|Unknown|Succeeded) break ;;
     esac
     sleep 1
 done
 
+# Only potentially healthy if still Running after the full wait
+PHASE=$(k3s kubectl get pod "$TEST_POD_NAME" -n "$NAMESPACE" \
+    -o jsonpath='{.status.phase}' 2>/dev/null || echo "Unknown")
+[[ "$PHASE" == "Running" ]] && HEALTHY=true
+
+# Dump full logs to a file for diagnosis, then show the important parts
+TEST_LOG="/tmp/hytale-test-pod.log"
+k3s kubectl logs "$TEST_POD_NAME" -n "$NAMESPACE" > "$TEST_LOG" 2>/dev/null || true
+LOG_LINES=$(wc -l < "$TEST_LOG" 2>/dev/null || echo 0)
+
 echo ""
-echo "── Test pod logs (last 30 lines) ──"
-k3s kubectl logs "$TEST_POD_NAME" -n "$NAMESPACE" --tail=30 2>/dev/null || echo "(no logs available)"
+echo "── Full test pod log saved to $TEST_LOG ($LOG_LINES lines) ──"
+echo "── Test pod logs (full output, deduped) ──"
+# Show all unique lines to skip the repeated "failed to validate npc's" spam
+awk '!seen[$0]++' "$TEST_LOG" 2>/dev/null || echo "(no logs available)"
 echo "────────────────────────────────────"
 
 RESTARTS=$(k3s kubectl get pod "$TEST_POD_NAME" -n "$NAMESPACE" \
     -o jsonpath='{.status.containerStatuses[0].restartCount}' 2>/dev/null || echo "0")
 [[ "$RESTARTS" -gt 0 ]] && { warn "Test pod restarted $RESTARTS time(s) — treating as unhealthy"; HEALTHY=false; }
 
-# Scan logs for known fatal server errors (catches graceful shutdowns due to plugin failures)
-if k3s kubectl logs "$TEST_POD_NAME" -n "$NAMESPACE" 2>/dev/null \
-        | grep -qE "Shutdown triggered|Failed to setup the following plugins|NoClassDefFoundError|ClassNotFoundException"; then
-    warn "Server logs indicate a fatal startup error — treating as unhealthy"
+# Check for successful boot message — this is the definitive signal
+if grep -q "Hytale Server Booted!" "$TEST_LOG" 2>/dev/null; then
+    info "Server boot message found — server started successfully"
+else
+    # No boot message: scan for known fatal errors to provide useful diagnostics
+    if grep -qE "Shutdown triggered|Failed to setup the following plugins|NoClassDefFoundError|ClassNotFoundException|failed to load" "$TEST_LOG" 2>/dev/null; then
+        warn "Server logs indicate a fatal startup error — treating as unhealthy"
+    else
+        warn "Server did not emit boot success message — treating as unhealthy"
+    fi
     HEALTHY=false
 fi
 
@@ -348,6 +372,18 @@ info "Scaled down production pod"
 k3s kubectl wait --for=delete pod -l "app.kubernetes.io/name=hytale" -n "$NAMESPACE" --timeout=120s 2>/dev/null || true
 sleep 3
 info "Production pod terminated"
+
+# In --build mode (version upgrade), clear server-generated data from the PVC.
+# The old server wrote NPC/entity/world data in a format the new version can't read.
+# Mods and configs are preserved; everything else gets wiped so the new server
+# starts clean. World data was already backed up in Step 1.
+if [[ "$BUILD_MODE" == true ]]; then
+    log "Step 5a: Clearing old server data from PVC (version upgrade)"
+    find "$PVC_PATH" -mindepth 1 -maxdepth 1 \
+        ! -name "mods" ! -name "configs" \
+        -exec rm -rf {} \;
+    info "Old server data cleared (mods and configs preserved, world backed up in Step 1)"
+fi
 
 # Sync mods
 log "Step 5b: Syncing mods to PVC"
