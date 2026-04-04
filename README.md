@@ -50,76 +50,76 @@ Restores mods, world data, and Kubernetes deployment from last backup.
 | Mod | Description | Source |
 |-----|-------------|--------|
 | MMORPGStats | Custom MMORPG core — stats, classes, abilities, quests, shop, guilds, claims, and combat HUD | Custom (in-house) |
-| AdminUI | Server administration GUI | CurseForge |
-| BetterMap | World map with cave mode and waypoints | CurseForge |
-| Extended Teleporters | Removes teleporter limit, adds private/restricted/trust teleporters | CurseForge |
-| EyeSpy | HUD that displays info about what you're looking at | CurseForge |
-| GhostBlockRemover | Detects and removes ghost blocks from removed mods | CurseForge |
-| Gravestones | Keep items safe on death with gravestones | CurseForge |
-| Loot4Everyone | Individual loot chests for every player | CurseForge |
-| Mounts+ | Rideable mounts with storage and eggs | CurseForge |
-| Pets+ | Pet system with XP, leveling, and combat | CurseForge |
-| ReviveMe | Downed and revival system for multiplayer | CurseForge |
+| AdminUI | Server administration GUI | [CurseForge](https://www.curseforge.com) |
+| BetterMap | World map with cave mode and waypoints | [CurseForge](https://www.curseforge.com) |
+| Extended Teleporters | Removes teleporter limit, adds private/restricted/trust teleporters | [CurseForge](https://www.curseforge.com) |
+| EyeSpy | HUD that displays info about what you're looking at | [CurseForge](https://www.curseforge.com) |
+| GhostBlockRemover | Detects and removes ghost blocks from removed mods | [CurseForge](https://www.curseforge.com) |
+| Gravestones | Keep items safe on death with gravestones | [CurseForge](https://www.curseforge.com) |
+| Loot4Everyone | Individual loot chests for every player | [CurseForge](https://www.curseforge.com) |
+| Mounts+ | Rideable mounts with storage and eggs | [CurseForge](https://www.curseforge.com) |
+| Pets+ | Pet system with XP, leveling, and combat | [CurseForge](https://www.curseforge.com) |
+| ReviveMe | Downed and revival system for multiplayer | [CurseForge](https://www.curseforge.com) |
 
 ### Cosmetics and Wardrobe
 
 | Mod | Description | Source |
 |-----|-------------|--------|
-| HayHay's Animal Masks | Animal masks (crafting removed, see Mask System) | CurseForge |
-| HayHay's Mob Cosmetics | Mob-themed cosmetics for the Wardrobe API | CurseForge |
-| HayHay's Plague Doctor Cosmetic | Plague Doctor cosmetic set for Wardrobe API | CurseForge |
-| Horns and Antlers: Wardrobe Pack | Horn and antler cosmetics for Wardrobe | CurseForge |
-| MelonicsWardrobes | Wardrobe addon with anime cosmetics | CurseForge |
-| Mobstar's Capes | Craftable cosmetic capes | CurseForge |
-| Violet's Wardrobe | Craftable cosmetic wardrobe items | CurseForge |
+| HayHay's Animal Masks | Animal masks (crafting removed, see Mask System) | [CurseForge](https://www.curseforge.com) |
+| HayHay's Mob Cosmetics | Mob-themed cosmetics for the Wardrobe API | [CurseForge](https://www.curseforge.com) |
+| HayHay's Plague Doctor Cosmetic | Plague Doctor cosmetic set for Wardrobe API | [CurseForge](https://www.curseforge.com) |
+| Horns and Antlers: Wardrobe Pack | Horn and antler cosmetics for Wardrobe | [CurseForge](https://www.curseforge.com) |
+| MelonicsWardrobes | Wardrobe addon with anime cosmetics | [CurseForge](https://www.curseforge.com) |
+| Mobstar's Capes | Craftable cosmetic capes | [CurseForge](https://www.curseforge.com) |
+| Violet's Wardrobe | Craftable cosmetic wardrobe items | [CurseForge](https://www.curseforge.com) |
 
 ### Content and Gameplay
 
 | Mod | Description | Source |
 |-----|-------------|--------|
-| Aures Farm Decor | 100+ decorative farm items, fences, and a crafting station | CurseForge |
-| Aures Horses | 70+ horse skin variations and appearances | CurseForge |
-| Aures Livestock | Animal color variations and skins | CurseForge |
-| Aures Paintings with Dragons | 50+ paintings including dragon-themed art | CurseForge |
-| Aures Rare Monsters | 8+ rare monster variants with unique drops and taming | CurseForge |
-| Better Gliders | Craftable and upgradeable gliders | CurseForge |
-| Blook's Bandits - RPG Mobs | Bandit ambushes in forested biomes at sunset | CurseForge |
-| Blook's Pirates - RPG Mobs | Pirate enemies on Zone 2 and 3 shores | CurseForge |
-| Cats | Tameable cat companions with multiple breeds | CurseForge |
-| Craftable Chalk Variants | Adds all chalk variants to the Builder's Workbench | CurseForge |
-| Eftann's Mythic Weapons | High quality new weapons | CurseForge |
-| ~~Hidden's Harvest Delights~~ | ~~Food mod with 80+ recipes, new crops, and fruit trees~~ | ~~CurseForge~~ — **Removed**: waiting for mod update for compatibility |
-| Kami's Magical Items | Magical weapons, staffs, wands, runes, and spellbooks | CurseForge |
-| Longbow Collection | Longbows with headshot mechanics and visual effects | CurseForge |
-| Major Dungeons | Custom dungeons, enemies, and items | CurseForge |
-| More Crossbow Tiers | Thorium, Cobalt, Adamantite, and Mithril crossbows | CurseForge |
-| Saurian's Variety Dinosaurs | 22+ dinosaur skin variants with custom sounds | CurseForge |
+| Aures Farm Decor | 100+ decorative farm items, fences, and a crafting station | [CurseForge](https://www.curseforge.com) |
+| Aures Horses | 70+ horse skin variations and appearances | [CurseForge](https://www.curseforge.com) |
+| Aures Livestock | Animal color variations and skins | [CurseForge](https://www.curseforge.com) |
+| Aures Paintings with Dragons | 50+ paintings including dragon-themed art | [CurseForge](https://www.curseforge.com) |
+| Aures Rare Monsters | 8+ rare monster variants with unique drops and taming | [CurseForge](https://www.curseforge.com) |
+| Better Gliders | Craftable and upgradeable gliders | [CurseForge](https://www.curseforge.com) |
+| Blook's Bandits - RPG Mobs | Bandit ambushes in forested biomes at sunset | [CurseForge](https://www.curseforge.com) |
+| Blook's Pirates - RPG Mobs | Pirate enemies on Zone 2 and 3 shores | [CurseForge](https://www.curseforge.com) |
+| Cats | Tameable cat companions with multiple breeds | [CurseForge](https://www.curseforge.com) |
+| Craftable Chalk Variants | Adds all chalk variants to the Builder's Workbench | [CurseForge](https://www.curseforge.com) |
+| Eftann's Mythic Weapons | High quality new weapons | [CurseForge](https://www.curseforge.com) |
+| ~~Hidden's Harvest Delights~~ | ~~Food mod with 80+ recipes, new crops, and fruit trees~~ | ~~[CurseForge](https://www.curseforge.com)~~ — **Removed**: waiting for mod update for compatibility |
+| Kami's Magical Items | Magical weapons, staffs, wands, runes, and spellbooks | [CurseForge](https://www.curseforge.com) |
+| Longbow Collection | Longbows with headshot mechanics and visual effects | [CurseForge](https://www.curseforge.com) |
+| Major Dungeons | Custom dungeons, enemies, and items | [CurseForge](https://www.curseforge.com) |
+| More Crossbow Tiers | Thorium, Cobalt, Adamantite, and Mithril crossbows | [CurseForge](https://www.curseforge.com) |
+| Saurian's Variety Dinosaurs | 22+ dinosaur skin variants with custom sounds | [CurseForge](https://www.curseforge.com) |
 | Seedling Crops | Crop growing system | — |
-| Shinku's Powerful Weapons | 3 legendary weapons — Spirit Calibur, Azure Vortex, Blood Moon Daggers | CurseForge |
-| Traveling Mounts | Tamed mountable companions with color variations | CurseForge |
-| Wan's Wonder Weapons | Collection of unique relic weapons | CurseForge |
-| Yorch's Armory | Armor and weapon variations | CurseForge |
-| YUNG's HyDungeons | Procedurally generated dungeon instances | CurseForge |
-| Ancient Constructs | Construct Workbench, gardener/warrior summons, Ancient Titan boss | CurseForge |
-| Chocobo Tales | Tameable Chocobo mounts with breeding, Gysahl Greens farming | CurseForge |
-| Drakortha's Expanded Armours | Diamond and Emerald tier armor sets with crafting bench | CurseForge |
-| Emprywynium | Empyreal-tier weapons — Hearsil, Halox, Serabice, Jolyn, Phoenix, Jon | CurseForge |
-| Fantastic Knight Armor Pack | 6 armor sets — FrostWarden, DuneWalker, AquaKnight, LavaKnight, Sakura, GraveKnight | CurseForge |
-| Floating Pets | Floating pet companions with egg-maker system | CurseForge |
-| Mutant NPCs | Mutant Skeleton, Zombie, Hound, Robotic variants — night spawns | CurseForge |
-| PJ Forgotten Creatures | Bramblekin, Mushee, Ghoul, Shadow Knight, Saurian Hunter, and more | CurseForge |
-| The Armory | 200+ weapons, armor sets (Demon, Rook, Warden), crowns, amulets, shields | CurseForge |
+| Shinku's Powerful Weapons | 3 legendary weapons — Spirit Calibur, Azure Vortex, Blood Moon Daggers | [CurseForge](https://www.curseforge.com) |
+| Traveling Mounts | Tamed mountable companions with color variations | [CurseForge](https://www.curseforge.com) |
+| Wan's Wonder Weapons | Collection of unique relic weapons | [CurseForge](https://www.curseforge.com) |
+| Yorch's Armory | Armor and weapon variations | [CurseForge](https://www.curseforge.com) |
+| YUNG's HyDungeons | Procedurally generated dungeon instances | [CurseForge](https://www.curseforge.com) |
+| Ancient Constructs | Construct Workbench, gardener/warrior summons, Ancient Titan boss | [CurseForge](https://www.curseforge.com) |
+| Chocobo Tales | Tameable Chocobo mounts with breeding, Gysahl Greens farming | [CurseForge](https://www.curseforge.com) |
+| Drakortha's Expanded Armours | Diamond and Emerald tier armor sets with crafting bench | [CurseForge](https://www.curseforge.com) |
+| Emprywynium | Empyreal-tier weapons — Hearsil, Halox, Serabice, Jolyn, Phoenix, Jon | [CurseForge](https://www.curseforge.com) |
+| Fantastic Knight Armor Pack | 6 armor sets — FrostWarden, DuneWalker, AquaKnight, LavaKnight, Sakura, GraveKnight | [CurseForge](https://www.curseforge.com) |
+| Floating Pets | Floating pet companions with egg-maker system | [CurseForge](https://www.curseforge.com) |
+| Mutant NPCs | Mutant Skeleton, Zombie, Hound, Robotic variants — night spawns | [CurseForge](https://www.curseforge.com) |
+| PJ Forgotten Creatures | Bramblekin, Mushee, Ghoul, Shadow Knight, Saurian Hunter, and more | [CurseForge](https://www.curseforge.com) |
+| The Armory | 200+ weapons, armor sets (Demon, Rook, Warden), crowns, amulets, shields | [CurseForge](https://www.curseforge.com) |
 
 ### Furniture and Decoration
 
 | Mod | Description | Source |
 |-----|-------------|--------|
-| HayHay's Animal Head Plushies | 135+ craftable animal head plushies | CurseForge |
-| ~~Salmakia Kitchen Furniture~~ | ~~Kitchen furniture, stoves, and decor~~ | ~~CurseForge~~ — **Removed**: waiting for mod update for compatibility |
-| ~~Salmakia Living Room Furniture~~ | ~~Sofas, fireplaces, curtains, and decor~~ | ~~CurseForge~~ — **Removed**: waiting for mod update for compatibility |
-| ~~Violet's Furnishings~~ | ~~Expanded furniture and decor~~ | ~~CurseForge~~ — **Removed**: waiting for mod update for compatibility |
-| Violet's Music Players | Music player items | CurseForge |
-| Violet's Plushies | Plushie collectibles with custom sounds | CurseForge |
+| HayHay's Animal Head Plushies | 135+ craftable animal head plushies | [CurseForge](https://www.curseforge.com) |
+| ~~Salmakia Kitchen Furniture~~ | ~~Kitchen furniture, stoves, and decor~~ | ~~[CurseForge](https://www.curseforge.com)~~ — **Removed**: waiting for mod update for compatibility |
+| ~~Salmakia Living Room Furniture~~ | ~~Sofas, fireplaces, curtains, and decor~~ | ~~[CurseForge](https://www.curseforge.com)~~ — **Removed**: waiting for mod update for compatibility |
+| ~~Violet's Furnishings~~ | ~~Expanded furniture and decor~~ | ~~[CurseForge](https://www.curseforge.com)~~ — **Removed**: waiting for mod update for compatibility |
+| Violet's Music Players | Music player items | [CurseForge](https://www.curseforge.com) |
+| Violet's Plushies | Plushie collectibles with custom sounds | [CurseForge](https://www.curseforge.com) |
 
 ---
 
